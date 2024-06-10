@@ -1,18 +1,17 @@
-1. Header:
-   - Header Form (1 bit): 1
-   - Fixed Bit (1 bit): 0
-   - Long Packet Type (2 bits): 00
-   - Packet Number Length (2 bits): 00
-   - Version (32 bits): 00000000
-   - Destination Connection ID Length (8 bits): 01
-   - Source Connection ID Length (8 bits): 08
+Given the bytestream e800000001081d5b0380bd0c390708a3507dc3a212c5e6401acfeb7ca8acdfd13ffe086c5264f308a13e6b3e5c71b5b7c1c5ac, we can extract the fields as follows:
 
-2. Destination Connection ID: 1d5b0380bd0c3907
+Header Form: 0x1
+Fixed Bit: 0x1
+Long Packet Type: 0x0
+Version: 0x081d5b03 (139876355)
+Destination Connection ID Length: 0x80 (128)
+Destination Connection ID: 0xbd0c390708a3507dc3a212c5e6401acfeb7ca8acdfd13ffe086c5264f308a13e6b3e5c71b5b7c1c5ac
+Source Connection ID Length: 0x0
+Source Connection ID: N/A
+Token Length: N/A
+Token: N/A
+Length: N/A
+Packet Number: N/A
+Packet Payload: N/A
 
-3. Source Connection ID: 08a3507dc3a212c5e6
-
-4. Length (16 bits): 401a
-
-5. Packet Number: cfeb7ca8acdfd13f
-
-6. Protected Payload: fe086c5264f308a13e6b3e5c71b5b7c1c5ac
+Therefore, the extracted fields from the bytestream correspond to a Long Header Initial Packet in the QUIC protocol.

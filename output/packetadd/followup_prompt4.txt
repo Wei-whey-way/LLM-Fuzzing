@@ -1,3 +1,12 @@
-According to the grammar for the QUIC packet in the RFC 9000 document: 
+This is the grammar for the QUIC packet in the RFC 9000 document:
+Long Header Packets:
+Initial Packet: {Header Form (1): 0x1\r\n, Fixed Bit (1): 0x1\r\n, Long Packet Type (2): 0x0\r\n, Reserved Bits (4): <Value>\r\n, Version (32): <Value>\r\n, Destination Connection ID Length (8): <Value>\r\n, Destination Connection ID (0..160): <Value>\r\n, Source Connection ID Length (8): <Value>\r\n, Source Connection ID (0..160): <Value>\r\n, Length (i): <Value>\r\n, Packet Number (8..32): <Value>\r\n, Packet Payload (8..): <Value>\r\n}
+
+0-RTT Packet: {Header Form (1): 0x1\r\n, Fixed Bit (1): 0x1\r\n, Long Packet Type (2): 0x1\r\n, Reserved Bits (2): <Value>\r\n, Packet Number Length (2): <Value>\r\n, Version (32): <Value>\r\n, Destination Connection ID Length (8): <Value>\r\n, Destination Connection ID (0..160): <Value>\r\n, Source Connection ID Length (8): <Value>\r\n, Source Connection ID (0..160): <Value>\r\n, Length (i): <Value>\r\n, Packet Number (8..32): <Value>\r\n, Packet Payload (8..): <Value>\r\n}
+
+Handshake Packet: {Header Form (1): 0x1\r\n, Fixed Bit (1): 0x1\r\n, Long Packet Type (2): 0x2\r\n, Reserved Bits (4): <Value>\r\n, Version (32): <Value>\r\n, Destination Connection ID Length (8): <Value>\r\n, Destination Connection ID (0..160): <Value>\r\n, Source Connection ID Length (8): <Value>\r\n, Source Connection ID (0..160): <Value>\r\n, Length (i): <Value>\r\n, Packet Number (8..32): <Value>\r\n, Packet Payload (8..): <Value>\r\n}
+
+Retry Packet: {Header Form (1): 0x1\r\n, Fixed Bit (1): 0x1\r\n, Long Packet Type (2): 0x3\r\n, Unused (4): <Value>\r\n, Version (32): <Value>\r\n, Destination Connection ID Length (8): <Value>\r\n, Destination Connection ID (0..160): <Value>\r\n, Source Connection ID Length (8): <Value>\r\n, Source Connection ID (0..160): <Value>\r\n, Retry Token (..): <Value>\r\n, Retry Integrity Tag (128): <Value>\r\n}
+ 
 I have this bytestream: e800000001081d5b0380bd0c390708a3507dc3a212c5e6401acfeb7ca8acdfd13ffe086c5264f308a13e6b3e5c71b5b7c1c5ac.
 Extract each field given in the grammar from the bytestream
