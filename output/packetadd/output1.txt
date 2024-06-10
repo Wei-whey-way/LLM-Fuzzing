@@ -1,0 +1,18 @@
+1. Header:
+   - Header Form (1 bit): 1
+   - Fixed Bit (1 bit): 0
+   - Long Packet Type (2 bits): 00
+   - Packet Number Length (2 bits): 00
+   - Version (32 bits): 00000000
+   - Destination Connection ID Length (8 bits): 01
+   - Source Connection ID Length (8 bits): 08
+
+2. Destination Connection ID: 1d5b0380bd0c3907
+
+3. Source Connection ID: 08a3507dc3a212c5e6
+
+4. Length (16 bits): 401a
+
+5. Packet Number: cfeb7ca8acdfd13f
+
+6. Protected Payload: fe086c5264f308a13e6b3e5c71b5b7c1c5ac

@@ -1,0 +1,17 @@
+1. Header:
+   - Flag: 0xe8 (11101000)
+   - Version: 0x00000001 (1)
+   - Destination Connection ID Length: 0x08 (8)
+   - Source Connection ID Length: 0x1d (29)
+
+2. Packet Number:
+   - Packet Number: 0x5b0380bd0c39 (123456789012345)
+
+3. Protected Payload:
+   - Length: 0x0708 (1800)
+   - Type: 0xa3 (Application Data)
+
+4. Packet Number Length: 0x50 (5)
+
+5. Protected Payload:
+   - Data: 0x7dc3a212c5e6401acfeb7ca8acdfd13ffe086c5264f308a13e6b3e5c71b5b7c1c5ac

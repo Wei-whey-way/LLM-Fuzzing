@@ -1,0 +1,8 @@
+Long Header Packets:
+Initial Packet: {Header Form (1): 0x1, Fixed Bit (1): 0x1, Long Packet Type (2): 0x0, Reserved Bits (4): 0x0, Version (32): <Value>, Destination Connection ID Length (8): <Value>, Destination Connection ID (0..160): <Value>, Source Connection ID Length (8): <Value>, Source Connection ID (0..160): <Value>, Token Length (i): <Value>, Token (..): <Value>, Length (i): <Value>, Packet Number (8..32): <Value>, Packet Payload (8..): <Value>}
+
+0-RTT Packet: {Header Form (1): 0x1, Fixed Bit (1): 0x1, Long Packet Type (2): 0x1, Reserved Bits (2): 0x0, Packet Number Length (2): <Value>, Version (32): <Value>, Destination Connection ID Length (8): <Value>, Destination Connection ID (0..160): <Value>, Source Connection ID Length (8): <Value>, Source Connection ID (0..160): <Value>, Length (i): <Value>, Packet Number (8..32): <Value>, Packet Payload (8..): <Value>}
+
+Handshake Packet: {Header Form (1): 0x1, Fixed Bit (1): 0x1, Long Packet Type (2): 0x2, Reserved Bits (4): 0x0, Version (32): <Value>, Destination Connection ID Length (8): <Value>, Destination Connection ID (0..160): <Value>, Source Connection ID Length (8): <Value>, Source Connection ID (0..160): <Value>, Length (i): <Value>, Packet Number (8..32): <Value>, Packet Payload (8..): <Value>}
+
+Retry Packet: {Header Form (1): 0x1, Fixed Bit (1): 0x1, Long Packet Type (2): 0x3, Unused (4): 0x0, Version (32): <Value>, Destination Connection ID Length (8): <Value>, Destination Connection ID (0..160): <Value>, Source Connection ID Length (8): <Value>, Source Connection ID (0..160): <Value>, Retry Token (..): <Value>, Retry Integrity Tag (128): <Value>}

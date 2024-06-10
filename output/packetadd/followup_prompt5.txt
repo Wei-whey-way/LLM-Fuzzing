@@ -1,0 +1,3 @@
+According to the grammar for the QUIC packet in the RFC 9000 document: 
+I have this bytestream: e800000001081d5b0380bd0c390708a3507dc3a212c5e6401acfeb7ca8acdfd13ffe086c5264f308a13e6b3e5c71b5b7c1c5ac.
+Extract each field given in the grammar from the bytestream

@@ -1,0 +1,26 @@
+From the provided bytestream (e800000001081d5b0380bd0c390708a3507dc3a212c5e6401acfeb7ca8acdfd13ffe086c5264f308a13e6b3e5c71b5b7c1c5ac), we can extract the fields according to the QUIC packet grammar in RFC 9000:
+
+1. Header:
+   - Header Form (1 bit): 1 (e8)
+   - Fixed Bit (1 bit): 0
+   - Long Header Type (2 bits): 00
+   - Reserved (2 bits): 00
+   - Packet Number Length (2 bits): 00
+   - Destination Connection ID Length (0 bits): 00
+   - Source Connection ID Length (0 bits): 00
+
+2. Version (32 bits): 00000001
+
+3. Packet Number (8 bits): 08
+
+4. Payload:
+   - Frame Type (1 byte): 1d
+   - Frame Payload (variable length): 5b0380bd0c390708a3507dc3a212c5e6401acfeb7ca8acdfd13ffe086c5264f308a13e6b3e5c71b5b7c1c5ac
+
+Therefore, the extracted fields from the bytestream are as follows:
+- Header Form: 1
+- Long Header Type: 00
+- Version: 00000001
+- Packet Number: 08
+- Frame Type: 1d
+- Frame Payload: 5b0380bd0c390708a3507dc3a212c5e6401acfeb7ca8acdfd13ffe086c5264f308a13e6b3e5c71b5b7c1c5ac
