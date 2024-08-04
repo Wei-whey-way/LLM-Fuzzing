@@ -1,0 +1,9 @@
+This is the RFC 9000, QUIC packet documentation: https://www.rfc-editor.org/rfc/rfc9000.html. And this is the Version Negotiation Packet from the documentation: 
+
+"Initial Packet": { "Header Form (1)": "0x1", "Fixed Bit (1)": "0x1", "Long Packet Type (2)": "0x0", "Reserved Bits (2)": "<Value>", "Packet Number Length (2)": "<Value>", "Version (32)": "<Value>", "Destination Connection ID Len (8)": "<Value>", "Destination Connection ID (0..160)": "<Value>", "Source Connection ID Length (8)": "<Value>", "Source Connection ID (0..160)": "<Value>", "Token Length (i)": "<Value>", "Token (..)": "<Value>", "Length (i)": "<Value>", "Packet Number (8..32)": "<Value>", "Packet Payload (8..)": "<Value>", } 
+
+From the following binary string, place all the values correctly into the Initial packet. 
+
+Bytestream: 11001111000000000000000000000000000000010000100011001101110000001001110111010001100111100000001010001011001100100000100010000111111100110011010000001000100101100101001100001000011000100000000001000100111001101010010111001011111110101011010001000001001100001110101010111011101000111101001010100000101010000000
+
+Give only the answer in the above format

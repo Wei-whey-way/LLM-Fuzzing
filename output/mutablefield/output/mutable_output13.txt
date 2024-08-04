@@ -1,0 +1,17 @@
+{
+    "Header Form (1)": "0x1",
+    "Fixed Bit (1)": "0x1",
+    "Long Packet Type (2)": "0x0",
+    "Reserved Bits (2)": "00",
+    "Packet Number Length (2)": "11",
+    "Version (32)": "11001111000000000000000000000000",
+    "Destination Connection ID Len (8)": "01",
+    "Destination Connection ID (0..160)": "00001110101011011000001110000000",
+    "Source Connection ID Length (8)": "01",
+    "Source Connection ID (0..160)": "10111101000011000011100100000111",
+    "Token Length (i)": "0",
+    "Token (..)": "",
+    "Length (i)": "00100010",
+    "Packet Number (8..32)": "00010001000100110011110000100111",
+    "Packet Payload (8..)": "00111001100001110011101001100000100000010100000001100110110111001010110110011001100111010011001011000001000"
+}
