@@ -1,0 +1,78 @@
+Matching fields
+Initial packet:
+	Average occurrences: 14.875
+	Rate: 0.9972067039106145
+0-RTT packet
+	Average occurrences: 13.0
+	Rate: 1.0
+Handshake packet
+	Average occurrences: 13.0
+	Rate: 1.0
+Retry packet
+	Average occurrences: 10.68
+	Rate: 1.0
+Matching Field Value pairs
+Initial packet:
+	Average occurrences: 14.229166666666666
+	Rate: 0.953525641025641
+0-RTT packet:
+	Average occurrences: 12.4
+	Rate: 0.9538461538461539
+Handshake packet:
+	Average occurrences: 12.326086956521738
+	Rate: 0.9481605351170568
+Retry packet:
+	Average occurrences: 9.36
+	Rate: 0.8763636363636365
+Matching fields
+Initial packet:
+	Average occurrences: 14.875
+	Rate: 0.9972067039106145
+0-RTT packet
+	Average occurrences: 13.0
+	Rate: 1.0
+Handshake packet
+	Average occurrences: 13.0
+	Rate: 1.0
+Retry packet
+	Average occurrences: 10.68
+	Rate: 1.0
+Matching Field Value pairs
+Initial packet:
+	Average occurrences: 14.229166666666666
+	Rate: 0.953525641025641
+0-RTT packet:
+	Average occurrences: 12.4
+	Rate: 0.9538461538461539
+Handshake packet:
+	Average occurrences: 12.326086956521738
+	Rate: 0.9481605351170568
+Retry packet:
+	Average occurrences: 9.36
+	Rate: 0.8763636363636365
+Matching fields
+Initial packet:
+	Average occurrences: 14.875
+	Rate: 0.9972067039106145
+0-RTT packet
+	Average occurrences: 13.0
+	Rate: 1.0
+Handshake packet
+	Average occurrences: 13.0
+	Rate: 1.0
+Retry packet
+	Average occurrences: 10.68
+	Rate: 1.0
+Matching Field Value pairs
+Initial packet:
+	Average occurrences: 14.229166666666666
+	Rate: 0.953525641025641
+0-RTT packet:
+	Average occurrences: 12.4
+	Rate: 0.9538461538461539
+Handshake packet:
+	Average occurrences: 12.326086956521738
+	Rate: 0.9481605351170568
+Retry packet:
+	Average occurrences: 9.36
+	Rate: 0.8763636363636365

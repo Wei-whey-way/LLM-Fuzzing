@@ -1,0 +1,41 @@
+Average # packet fields generated:
+	Initial: 14.916666666666666
+	0rtt: 13.0
+	Handshake: 13.0
+	Retry: 10.68
+Missing Initial Packet: Sum occurrences = 6
+	average # occurrences: 0.125
+	rate: 0.008333333333333333
+Missing 0-RTT Packet: Sum occurrences = 0
+	average # occurrences: 0.0
+	rate: 0.0
+Missing Handshake Packet: Sum occurrences = 0
+	average # occurrences: 0.0
+	rate: 0.0
+Missing Retry Packet: Sum occurrences = 16
+	average # occurrences: 0.32
+	rate: 0.02909090909090909
+Hallucination Initial Packet: Sum occurrences = 2
+	average # occurrences: 0.041666666666666664
+	rate: 0.002777777777777778
+Hallucination 0-RTT Packet: Sum occurrences = 0
+	average # occurrences: 0.0
+	rate: 0.0
+Hallucination Handshake Packet: Sum occurrences = 0
+	average # occurrences: 0.0
+	rate: 0.0
+Hallucination Retry Packet: Sum occurrences = 0
+	average # occurrences: 0.0
+	rate: 0.0
+Sequence matching Initial Packet: Sum occurrences = 47.72380952380952
+	average # occurrences: 0.9942460317460317
+	rate: 0.06628306878306878
+Sequence matching 0-RTT Packet: Sum occurrences = 50.0
+	average # occurrences: 1.0
+	rate: 0.07692307692307693
+Sequence matching Handshake Packet: Sum occurrences = 46.0
+	average # occurrences: 1.0
+	rate: 0.07692307692307693
+Sequence matching Retry Packet: Sum occurrences = 49.23809523809524
+	average # occurrences: 0.9847619047619048
+	rate: 0.08952380952380953
