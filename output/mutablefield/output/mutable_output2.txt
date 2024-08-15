@@ -1,3 +1,0 @@
-"Initial Packet": { "Header Form (1)": "0x1", "Fixed Bit (1)": "0x1", "Long Packet Type (2)": "0x0", "Reserved Bits (2)": "0x3", "Packet Number Length (2)": "0x3", "Version (32)": "0x00000001", "Destination Connection ID Len (8)": "0x08", "Destination Connection ID (0..160)": "0x1d5b0380bd0c390708c8", "Source Connection ID Length (8)": "0x05", "Source Connection ID (0..160)": "0x431ab2981b", "Token Length (i)": "0x6e", "Token (..)": "<Value>", "Length (i)": "<Value>", "Packet Number (8..32)": "<Value>", "Packet Payload (8..)": "<Value>", } 
-
-Note: The values for "Token (..)", "Length (i)", "Packet Number (8..32)", and "Packet Payload (8..)" can't be determined from the given binary string as they are variable and the exact length or value isn't specified.
