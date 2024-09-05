@@ -1,0 +1,21 @@
+```json
+{
+    "Initial Packet": {
+        "Header Form (1)": "0xc",
+        "Fixed Bit (1)": "0x1",
+        "Long Packet Type (2)": "0x0",
+        "Reserved Bits (2)": "0x0",
+        "Packet Number Length (2)": "0x0",
+        "Version (32)": "0x00000001",
+        "Destination Connection ID Length (8)": "0x08",
+        "Destination Connection ID (0..160)": "0x5dd0ec694be2c3db",
+        "Source Connection ID Length (8)": "0x08",
+        "Source Connection ID (0..160)": "0x1d5b0380bd0c3907",
+        "Token Length (i)": "0x00",
+        "Token (..)": "",
+        "Length (i)": "0x40",
+        "Packet Number (8..32)": "0x98f83fce",
+        "Packet Payload (8..)": "0x8583a0e7abd10a8a2984772fafdac56939a73a0108478a9960e726984943e3c1c00ea783c30a271d0c6070ad56f67025f40d0cbe3300dd88163c01d308486a9561c50a62300a60b9d619433eabab613ffc0803185aeac8ddb4fbfcfedd58724c23836409f69f8bae49c63d1d0ecd8ff431a968237452a60c4e5a0f30c05e95da5948f3a40a468f30ec55e51e146300e8e3d58d244e"
+    }
+}
+```

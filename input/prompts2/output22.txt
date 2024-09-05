@@ -1,0 +1,13 @@
+Line 1: Initial Packet
+Line 2: Handshake Packet
+Line 3: 0-RTT Packet
+Line 4: 0-RTT Packet
+Line 5: Retry Packet
+Line 6: 1-RTT Packet
+Line 7: 1-RTT Packet
+Line 8: 1-RTT Packet
+Line 9: Retry Packet
+Line 10: 1-RTT Packet
+
+Missing packets:
+Version Negotiation Packet: 80 00 00 00 00 00 00 00 00. Line 6: {Packet header of the line}

@@ -1,0 +1,12 @@
+```json
+{
+"Header Form (1)": "0x1",
+"Unused (7)": "0xB",
+"Version (32)": "0x00000000",
+"Destination Connection ID Length (8)": "0x08",
+"Destination Connection ID (0..2040)": "6527d6d73a5f3508",
+"Source Connection ID Length (8)": "0x08",
+"Source Connection ID (0..2040)": "d2dd2fbf84c4a03b",
+"Supported Version (32)":  "0x000016b3", "0x343cf709", "0x50c4ff00", "0x0022ff00", "0x0021ff00", "0x0020ff00", "0x001fff00", "0x001dff00", "0x001eff00", "0x001cff00", "0x001b5043", "0x51315043", "0x51301aaa"
+}
+```

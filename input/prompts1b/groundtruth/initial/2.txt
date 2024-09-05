@@ -1,0 +1,15 @@
+Header Form (1): 0x1
+Fixed Bit (1): 0x1
+Long Packet Type (2): 0x00
+Reserved Bits (2): 0x11
+Packet Number Length (2): 0x00
+Version (32): 0x00000001
+Destintion Connection ID Length (8): 0x08
+Destination Connection ID (0..160): 0xc85431ab2981b6ec
+Source Connection ID Length (8): 0x08
+Source Connection ID (0..160): 0x1d5b0380bd0c3907
+Token Length (i): 0x00
+Token (..): None
+Length (i): 0x4e6
+Packet Number (8..32): 12f51598
+Packet Payload (8..): 6132251d7f424a7642fbd7c32a7f57c81ee8aa4d45e65025e3acc0602b37f04e09384aefd008f2d03649827fd466afd62f12558d70eebf58eefa8c633710163ed58a66fbe18282772dcab0e37275cd5d38863781dad5cf8615182751c8a69470c8a95b990c9507e2d066075eb7e02e539985efbfb158812ee56b11640f6e54d09709a0a2dd730401f7f3f39f16805c7ec0bb6208

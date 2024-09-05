@@ -1,0 +1,15 @@
+```json
+{
+  "Header Form (1)": "0x1",
+  "Fixed Bit (1)": "0x1",
+  "Long Packet Type (2)": "0x0",
+  "Reserved Bits (2)": "0x3", // assuming that "Reserved Bits" occupy these 2 bits: "3"
+  "Packet Number Length (2)": "0x3", // assuming that "Packet Number Length" occupy next 2 bits: "3"
+  "Version (32)": "0x00000001",
+  "Destination Connection ID Length (8)": "0x08",
+  "Destination Connection ID (0..160)": "0x1d5b0380bd0c390708e2",
+  "Length (i)": "0xdfe628", // assuming "i" is varint encoded: "dfe628"
+  "Packet Number (8..32)": "0xb3ad99d3", // 4 bytes packet number
+  "Packet Payload (8..)": "0x401af66a0d05acded105fe0883e22b54787595c608e78509514918da"
+}
+```

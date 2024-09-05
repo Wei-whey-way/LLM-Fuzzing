@@ -1,0 +1,5 @@
+Line 1: Handshake Packet
+
+Missing packets:
+Version Negotiation Packet: c0 00 00 00 00 01
+Line 2: Initial Packet

@@ -1,0 +1,11 @@
+Header Form (1): 0x1
+Fixed Bit (1): 0x1
+Long Packet Type (2): 0x11
+Unused (4): 0x0000
+Version (32): 0x00000001
+Destintion Connection ID Length (8): 0x08
+Destination Connection ID (0..160): 0xb371de92dfa59c91
+Source Connection ID Length (8): 0x08
+Source Connection ID (0..160): 0x1d5b0380bd0c3907
+Retry Token (..): 0x0592e53a0de5951e3d125e60ba72edba0a2335118ebabd4763461a6a5443f7c7b4824d347363ed68eb40cbf9f8870b2899d964
+Retry Integrity Tag (128): 0x2ca3d17d7e305a5011505083485a2e83

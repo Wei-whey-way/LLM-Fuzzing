@@ -1,0 +1,3 @@
+This is a folder containing all the outputs of the batch input prompts from the folder input/batchinputprompts.
+
+All files in here were manually saved from the OpenAI batches link. To extract the .jsonl into readable format, use batch parser. Each line from each batch output file will be saved as a separate file.

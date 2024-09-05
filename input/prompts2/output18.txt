@@ -1,0 +1,11 @@
+Line 1: Initial Packet
+Missing packets:
+Version Negotiation Packet: c0 00 00 00 01 00 00 00 00 01 08 26 97 42 d3 af NOTE: Placeholder payload
+Line 2: Handshake Packet
+Line 3: Handshake Packet
+Line 4: Retry Packet
+Line 5: Initial Packet
+Line 6: Handshake Packet
+Line 7: Handshake Packet
+Line 8: Handshake Packet
+Line 9: Short Header Packet (1-RTT Packet)

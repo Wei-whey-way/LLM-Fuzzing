@@ -1,0 +1,15 @@
+{Line 1}: Initial Packet
+{Line 2}: Handshake Packet
+{Line 3}: 0-RTT Packet
+{Line 4}: 0-RTT Packet
+{Line 5}: 0-RTT Packet
+{Line 6}: 0-RTT Packet
+{Line 7}: 0-RTT Packet
+
+Missing packets:
+Retry Packet: f0 00 00 00 01 08 c4 cf 36 39 9d 8f 9a c1 08 89 05 22 3d 16 f4 ee 0d 00 44 e6 28 20 dd e0 c5 1c 8d fa fc 19 df a1 f3 e9 bc 00 f3
+
+{Line 1}: Initial Packet
+{Retry Packet}: Retry Packet
+{Line 2}: Handshake Packet
+{Line 3}: 0-RTT Packet
