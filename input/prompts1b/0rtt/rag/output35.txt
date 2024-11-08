@@ -1,0 +1,9 @@
+{
+  "Initial Byte": "db",
+  "Version": "00000001",
+  "Destination Connection ID Length": "08",
+  "Destination Connection ID": "0303030303030303",
+  "Source Connection ID Length": "08",
+  "Source Connection ID": "a9fa7f0967f604b6",
+  "Payload": "40156514acbf890c4a83549c4d118033076e65764d9806"
+}

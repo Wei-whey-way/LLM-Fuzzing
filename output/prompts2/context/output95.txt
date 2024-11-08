@@ -1,0 +1,14 @@
+{Line 1}: Initial Packet
+{Line 2}: 0-RTT Packet
+{Line 3}: Handshake Packet
+{Line 4}: Retry Packet
+
+Missing packets:
+Version Negotiation Packet: c00000000100000000000000000000
+{Line 4}: Retry Packet
+
+Retry Packet
+{Line 5}: Initial Packet
+
+{Line 6}: Handshake Packet
+{Line 7}: Retry Packet

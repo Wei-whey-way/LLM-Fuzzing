@@ -1,0 +1,7 @@
+Line 1: Initial Packet
+Line 2: Handshake Packet
+Missing packets:
+0-RTT Packet: cf00000001081d5b0380bd0c39070878b28c4ed4601f0a401a3e9af4b384a3084927837c6b04d57469fea3b52cac3a952c6399. Line 3: Handshake Packet
+Line 4: Retry Packet
+Line 5: Retry Packet
+Line 6: Initial Packet

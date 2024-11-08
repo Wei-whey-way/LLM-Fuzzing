@@ -1,0 +1,11 @@
+```
+Line 1: Initial Packet
+
+Missing packets:
+Handshake Packet: cf00000001081d5b0380bd0c390708f8209d20062cc567401575570ec391a45c790d3ced3e4f91538fcab5b13b3b. Line 2: Initial Packet
+Line 3: Handshake Packet
+Line 4: 1-RTT Packet
+Line 5: Handshake Packet
+Line 6: 1-RTT Packet
+Line 7: 1-RTT Packet
+```

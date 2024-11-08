@@ -1,0 +1,12 @@
+Bytestream:
+Type: 0xD7
+Fixed Bit: 1
+Reserved Bits: 0000
+Packet Number Length: 1 byte
+Packet Number: 00
+Version: 00000108
+Destination Connection ID Length: 3 bytes
+Destination Connection ID: 030303
+Source Connection ID Length: 3 bytes
+Source Connection ID: 030303030308
+Payload: 05f624a7a7799d944015aca383a62865cbc7842d56953ffae1f8f867afbc15

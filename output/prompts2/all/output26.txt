@@ -1,0 +1,20 @@
+{Line 1}: Initial Packet
+
+{Line 2}: Initial Packet
+
+{Line 3}: Handshake Packet
+
+{Line 4}: Handshake Packet
+
+{Line 5}: Handshake Packet
+
+{Line 6}: Short Header 1-RTT Packet
+
+{Line 7}: Short Header 1-RTT Packet
+
+{Line 8}: Short Header 1-RTT Packet
+
+{Line 9}: Short Header 1-RTT Packet
+
+Missing packets:
+{Version Negotiation Packet}: c0000000000100081d5b0380bd0c3907086add16fecb93201f89f61b245212f52a1501a3ee2078bfa3dbb0d92b5958345323ae. {Line 3}: {Handshake Packet}

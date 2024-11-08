@@ -1,0 +1,17 @@
+```
+Header Form: 1
+Fixed Bit: 1
+Long Packet Type: 01
+Reserved Bits: 00
+Packet Number Length: 10
+Version: 00000001
+Destination Connection ID Length: 08
+Destination Connection ID: 0303030303030303
+Source Connection ID Length: 08
+Source Connection ID: cb9c9b827561451a
+Length: 015a
+Packet Number: a041
+Payload:
+  6a c6 ef 97 96 28 74 60
+  57 48 e1 65 4c 65 84
+```

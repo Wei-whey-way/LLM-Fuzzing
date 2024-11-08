@@ -1,0 +1,7 @@
+{'Line 1': '0xc9', 'Line 2': '0xc8', 'Line 3': '0xc3', 'Line 4': '0xe0', 'Line 5': '0xe0', 'Line 6': '0xe6', 'Line 7': '0x7c', 'Line 8': '0x77', 'Line 9': '0x70', 'Line 10': '0x70'}
+Unique packet types (GT): 3
+Packet types: dict_keys(['Initial Packet', 'Handshake Packet', '1-RTT Packet', 'Version negotiation'])
+Number of unique packet types: 4
+Valid: [['Version negotiation', 'c1f00000000108504c6179e5e903000044e6535602ff6718319262176aee9c5de01c8b0f5d0989e6fe1659e16313']]
+Hallucinated: ['ca00000001081d5b0380bd0c3908748700010800000000000000000000000000000']
+Order: Initial > Version nego > Initial (Pass)

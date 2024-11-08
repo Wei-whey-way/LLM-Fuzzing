@@ -1,0 +1,6 @@
+{'Line 1': '{Initial packet header for stream 1}', 'Line 3': '{Packet header for stream 3}', 'Line 4': '{Packet header for stream 4}', 'Line 5': '{Packet header for stream 5}', 'Line 6': '{Packet header for stream 6}', 'Line 7': '{Packet header for stream 7}', 'Line 8': '{Packet header for stream 8}', 'Line 9': '{Packet header for stream 9}', 'Line 10': '{Packet header for stream 10}'}
+Unique packet types (GT): 3
+Packet types: dict_keys(['Initial Packet', 'Handshake Packet', '1-RTT Packet'])
+Number of unique packet types: 3
+Valid: []
+Hallucinated: ['0b000000001101']

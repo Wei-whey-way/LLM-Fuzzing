@@ -1,0 +1,13 @@
+```
+Line 1: Initial
+
+Missing packets:
+Handshake: cf01000000032202000000000000000800000000
+Line 2: Initial
+Missing packets:
+0-RTT: c2000000003220200000000000000
+Line 3: Initial
+Line 4: Retry
+Line 5: Retry
+Line 6: Initial
+```

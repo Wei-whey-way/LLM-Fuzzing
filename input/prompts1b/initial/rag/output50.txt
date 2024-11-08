@@ -1,0 +1,75 @@
+To decode the given hex byte stream for the initial packet in the QUIC protocol as per RFC 9000, let's begin by identifying each field and placing the decoded values into the "Initial Packet" structure. 
+
+Bytestream: 
+```
+c600000001084b910a48a4ae8d56081d5b0380bd0c39070040985d34d98bbfcc7dcd40a6d70db5247d403829da1e54950e0b42c61c6e8719181d4b87aa84d99a08a9ef14ef9c73af4e0d59f8bbdade58db30b6b1c39eaf2f4160aa44eb8ab203c6e5854ddf0a71067c3a9d0f09977e5e43a093789d8504849ffcb848025d7b2c6b2979156f2b9b84430895d86503329831fb23525964248c78ff449ddd840c7859eee68ffae2e81e33ea56206f71576b7651
+```
+
+Following RFC 9000, here is the breakdown of the fields:
+
+1. Header Form (1 bit): Since it's an Initial Packet which belongs to the long-header format, this value is `1`.
+2. Fixed Bit (1 bit): This bit is set to `1`.
+3. Long Packet Type (2 bits): Indicates the type of long header, `00` for Initial Packet (`0x0`).
+4. Reserved Bits (2 bits): Undefined values. Let's use placeholder `00`.
+5. Packet Number Length (2 bits): This indicates the length of the packet number field. Let's use `01`.
+6. Version (32 bits): The version field. Decode from the byte string.
+7. Destination Connection ID Length (8 bits): Length of DCID field.
+8. Destination Connection ID (0..160 bits): Actual DCID value.
+9. Source Connection ID Length (8 bits): Length of SCID field.
+10. Source Connection ID (0..160 bits): Actual SCID value.
+11. Token Length (i variable length integer): Length of the token field.
+12. Token (.. arbitrary length): The token itself.
+13. Length (i variable length integer): Length of the payload.
+14. Packet Number (8..32 bits): Actual packet number.
+15. Packet Payload (8..): The payload data itself.
+
+Decoding the provided bytestream step-by-step:
+```
+c6 = 11000110
+Header Form (1 bit) = 1
+Fixed Bit (1 bit) = 1
+Long Packet Type (2 bits) = 00 (Initial Packet)
+Reserved Bits (2 bits) = 10
+Packet Number Length (2 bits) = 10
+
+0000 0001 (first 4 bytes after "c6")
+Version (32 bits) = 0000 0001 (0x00000001) QUIC version 1
+
+08 = DCID Length (8 bits) = 8 (which means 8 bytes in next field)
+4b910a48a4ae8d56 (8 bytes DCID)
+
+08 = SCID Length (8 bits) = 8 (which means 8 bytes in next field)
+081d5b0380bd0c39 (8 bytes SCID)
+
+07 = Token Length (i variable) = 00 (means zero length, no token present)
+00
+
+Length (next byte) = 40 (04)
+Length of payload afterward
+
+Packet Number (8..32 bits) = Packet Number Length field determines this. Let's use lowest length 1 (one byte)
+985d (Packet Number - 2 bytes)
+
+34d98bbfcc7dcd40a6d70db5247d403829da1e54950e0b42c61c6e8719181d4b87aa84d99a08a9ef14ef9c73af4e0d59f8bbdade58db30b6b1c39eaf2f4160aa44eb8ab203c6e5854ddf0a71067c3a9d0f09977e5e43a093789d8504849ffcb848025d7b2c6b2979156f2b9b84430895d86503329831fb23525964248c78ff449ddd840c7859eee68ffae2e81e33ea56206f71576b (Next remaining payload bytes)
+```
+Here, putting these interpreted hex values into the Initial Packet:
+
+```
+"Initial Packet": {
+  "Header Form (1)": "0x1",
+  "Fixed Bit (1)": "0x1",
+  "Long Packet Type (2)": "0x0",
+  "Reserved Bits (2)": "0x2",
+  "Packet Number Length (2)": "0x2",
+  "Version (32)": "0x00000001",
+  "Destination Connection ID Length (8)": "0x08",
+  "Destination Connection ID (0..160)": "4b910a48a4ae8d56",
+  "Source Connection ID Length (8)": "0x08",
+  "Source Connection ID (0..160)": "081d5b0380bd0c39",
+  "Token Length (i)": "0x00",
+  "Token (..)": "",
+  "Length (i)": "0x40",
+  "Packet Number (8..32)": "0x985d",
+  "Packet Payload (8..)": "34d98bbfcc7dcd40a6d70db5247d403829da1e54950e0b42c61c6e8719181d4b87aa84d99a08a9ef14ef9c73af4e0d59f8bbdade58db30b6b1c39eaf2f4160aa44eb8ab203c6e5854ddf0a71067c3a9d0f09977e5e43a093789d8504849ffcb848025d7b2c6b2979156f2b9b84430895d86503329831fb23525964248c78ff449ddd840c7859eee68ffae2e81e33ea56206f71576b"
+}
+```

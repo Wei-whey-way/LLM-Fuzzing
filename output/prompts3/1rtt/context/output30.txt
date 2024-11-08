@@ -1,0 +1,1 @@
+Initial: {Initial bytestream following the rules of that packet type}

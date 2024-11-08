@@ -1,0 +1,6 @@
+```
+Line 1: Initial
+
+Missing packets:
+0-RTT: 0a00000001081d5b0380bd0c39070808e933a1cbb273a40123456789abcdef0123456789abcdef0123456789abcdef01. Line 3: Handshake
+```

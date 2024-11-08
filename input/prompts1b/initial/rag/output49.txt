@@ -1,0 +1,41 @@
+To construct the Initial Packet using the provided hex string, we must dissect the byte stream accordingly based on the field specifications:
+
+Bytestream: 
+```
+c200000001086b2be9889649a232084b910a48a4ae8d560044e62f3f6b61ef5c6057c2fe54d0d2544c2427888639b74bb3b6b188c7ad4aec39d34a8e19a8bc3b6857a6aae6fd21e52d735e274dd2a479c00bb70363c186e08a62fd4ec68808b11ebee66cea08f0496988da8337932a354ec54fb3c4a4d01684719c2b61fb960bc22e85bc3c633cd576a9562e54d9d723c39814e9821dc9c3ef6f3908a2d036b7e98ad82c7d02e277a1676948b404f60bddce47c9e0ea25211063647c191fcb54e7d5887d8c7d546a286556afde2363c15388d38802fa2fd6ffa03d38c26e0924a05e2e652406bddd0356f08078a02a331bbd978d2dc4fe8e9bee457ab95167ab4fb5bda8bfc118ff044441bf4d79431a447b80d9d2e8b3647941003d4cb1d3f5c7d0767a4f9bb046bb0591eb88928f8a8a4c48b05810cb6a059b74c4f3a0cf05dc04cd45a54dd124f19bd927dd19b3464db2f64845b7de805634b7e512faad97bf1eb982b019aa672a9e7385090b429cac80aace3212345bea3b484d3e5b3fcc37a3e63a97c266cb9c059b978ba8be2d1c5c11b79f39201550572bd1256952af4043ed95d48fd7bf8051c6fc83f8dcc9e87aca0e1e55edf1f2071820eace9ea1cbc78be0fbd83661cd752459276d9884a702a963bcdfdc2ef821d6137fbb4f466c59639c6db76362d35a81920d4fbfbf7bb6a16a7b26668c7943dcde69c78cfb85a43b6652a1c40571ceb0f3f8acdf889a576875a3994af96b8f9d94772bb640c0766930571010f30890377ad0a4df053f7bfcb423e6e5277cab5ba5e8e7b7e387dfd1af3ce5033f48fbcfdf604d4c8614604300f8c344983d61d5179d45b3fbbba35f197d51201ba183fd4c8c3677e5e69024157aff626889548afa5c0df46a055f320931d4f09776daaf5d04ff963eac41e387f332b77cae7a015fbfe69173c0016d425203e621430b26ce62d13f62811f0c62256ed8af60dc238c1eb51886be76c7c74a3c0d3fc41aa105080402f69fc9677ee4117daa2554a1cf612c1e07cb673375bd994835415539800aa0045fe151f07a9b52f9c6037cc8b8a77057e3e3528acccec7126178947bc180f5ff718ad881da34f6aa87d701f1db729b687e37dcc798f4c7067dab337c28991efd6efa921109de76b0fa4463361869b374056fa325bb28fa2a8b242ab34b36a9f75ee15c7b38752ed4c6d28dff7a9d6c0638520c9f95ea500b9e1430fa95c8e5aad284601d54f04e1bb5307c5255de040b992a8264689330d1e0b8c8543de953372b9cdf43883a2f3b5bd73b47e943e4229f5b0c85a12efdc761c4a85fe6e4c240f5bba35fdb276afeb08c37f2c8bc4ff36abcec2392777b9326f973287f92b507f6b0c88d30e6caa7f126610e83e2b18e6a2e6e40e1cedbb2d2287ff1e2c400263628fa4e2111052d53738492aef0830b9adae7305c85845d2de2c801e74675685804a47a6672499ba5c3de5f8c24a1b6b588f25fafd10d89d832b9fcaa84d58d14d193d554dfe3f8e73560d4e03a6fa02c80d43acdccb2aa0855f33938a33e708db62e7f4f4eda6de6f337c0d543d60dbd34c828893bcad51f7b39ad9dbbc50101df32bbe71902cb5a5dbdac67862f5403aae146fa51a281d826f12733a056481bff05340cb6e42f1ea7461935911407cdc30c422785f5d30bb70d6537d5b22333a0fb315147d18eb05b5190324dd4b4206e0079ba06014e5d9b153af92638bab3c8336e207bbc12f6ccdb7fcc10d0ff7a55cb4c508041672108e0eeff959c334a56a4dc1bae439ce1850e5a1b17587a12
+```
+
+We start decoding the fields based on the QUIC Initial Packet structure. Each value is parsed according to its specified length in bits or bytes:
+
+1. **Header Form (1)**: The first 1 bit
+2. **Fixed Bit (1)**: The next 1 bit
+3. **Long Packet Type (2)**: The next 2 bits
+4. **Reserved Bits (2)**: The next 2 bits
+5. **Packet Number Length (2)**: The next 2 bits
+6. **Version (32)**: The next 4 bytes
+7. **Destination Connection ID Length (8)**: The next 1 byte
+8. **Destination Connection ID (0..160)**: The length defined by the above value in bytes
+9. **Source Connection ID Length (8)**: The next 1 byte
+10. **Source Connection ID (0..160)**: The length defined by the above value in bytes
+11. **Token Length (i)**: The encoded integer variable length
+12. **Token (..)**: The length which is defined by the above value
+13. **Length (i)**: The length of remaining data, encoded in a variable integer
+14. **Packet Number (8..32)**: Defined by the Packet Number Length field. The length is 1, 2, 3, or 4 bytes
+15. **Packet Payload (8..)**: The rest of the data.
+
+Dissecting the given hex string accordingly:
+
+- The first byte `c2` (11000010 in binary) is broken down:
+  - **Header Form**: 1 (first bit of `c2`: 1)
+  - **Fixed Bit**: 1 (second bit of `c2`: 1)
+  - **Long Packet Type**: 00 (third and fourth bits of `c2`: 00)
+  - **Reserved Bits**: 00 (fifth and sixth bits of `c2`: 00)
+  - **Packet Number Length**: 10 (seventh and eighth bits of `c2`: 10)
+
+  Hence the 2 bits for packet number length: `10` means the packet number length is 2 bytes.
+
+Next 4 bytes: `00000001`
+- **Version**: `00000001` = 1
+
+Next 1 byte: `08`
+-

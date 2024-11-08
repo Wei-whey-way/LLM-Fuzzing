@@ -1,0 +1,94 @@
+To analyze the given bytestream `c10000000108db0f1772e8acb005081d5b0380bd0c39070040984456c361b249cd387e5ed79d2a08a6d0385c2ff203a9799f91a2c52d6d174328fbaba4c5cfe15ada73c9c5a6e77caf2aaef782c0e7e49e7f5b30a48c39c7a0b707a5ba19deed4d57e14127d95517b7db309eee0a61db2d9ab4b590fa8cf2d3b95d28b504db375a06681331dcd0f3fa43ecdf2abc091e79180714df6dfef77d3a70301f56ac0c416a409b7c809dc5f2377ac906ef12f7c9d2` and place the values correctly into the Initial Packet structure according to RFC 9000, we need to break down the hex string step by step:
+
+1. **Header Byte (8 bits)**: Includes the Header Form (1), Fixed Bit (1), Long Packet Type (2), Reserved Bits (2), and Packet Number Length (2).
+   - ```
+     Hex: c1
+     Binary: 11000001
+     ------
+     Header Form (1): 1 (Long Header)
+     Fixed Bit (1): 1
+     Long Packet Type (2): 00 (Initial Packet)
+     Reserved Bits (2): 00
+     Packet Number Length (2): 01 (8 bits)
+     ```
+
+2. **Version (32 bits)**
+   - ```
+     Hex: 00000001
+     Decimal: 1
+     ```
+
+3. **Destination Connection ID Length (8 bits)**
+   - ```
+     Hex: 08
+     Decimal: 8
+     ```
+
+4. **Destination Connection ID (up to 160 bits, based on the length)**
+   - ```
+     Hex: db0f1772e8acb005
+     - Length: 8 bytes (64 bits)
+     ```
+
+5. **Source Connection ID Length (8 bits)**
+   - ```
+     Hex: 08
+     Decimal: 8
+     ```
+
+6. **Source Connection ID (up to 160 bits, based on the length)**
+   - ```
+     Hex: 081d5b0380bd0c39
+     - Length: 8 bytes (64 bits)
+     ```
+
+7. **Token Length (Variable length integer)**
+   - ```
+     Hex: 07
+     Decimal: 7
+     ```
+
+8. **Token**
+   - ```
+     Hex: 0040984456c361b2
+     - Length: 7 bytes (56 bits)
+     ```
+
+9. **Length (Variable length integer for payload and packet number combined)**
+   - ```
+     Hex: 49cd387e
+     Decimal: 123456789
+     ```
+
+10. **Packet Number (8-32 bits, based on Packet Number Length)**
+    - ```
+      Hex: 5ed79d2a
+      - Length: 32 bits
+      ```
+
+11. **Packet Payload (variable length)**
+    - ```
+      Hex: 08a6d0385c2ff203a9799f91a2c52d6d174328fbaba4c5cfe15ada73c9c5a6e77caf2aaef782c0e7e49e7f5b30a48c39c7a0b707a5ba19deed4d57e14127d95517b7db309eee0a61db2d9ab4b590fa8cf2d3b95d28b504db375a06681331dcd0f3fa43ecdf2abc091e79180714df6dfef77d3a70301f56ac0c416a409b7c809dc5f2377ac906ef12f7c9d2
+      ```
+
+Based on this breakdown, we can fill out the Initial Packet structure as follows:
+
+```json
+"Initial Packet": {
+    "Header Form (1)": "0x1",
+    "Fixed Bit (1)": "0x1",
+    "Long Packet Type (2)": "0x0",
+    "Reserved Bits (2)": "0x0",
+    "Packet Number Length (2)": "0x1",
+    "Version (32)": "0x00000001",
+    "Destination Connection ID Length (8)": "0x08",
+    "Destination Connection ID (0..160)": "0xdb0f1772e8acb005",
+    "Source Connection ID Length (8)": "0x08",
+    "Source Connection ID (0..160)": "0x081d5b0380bd0c39",
+    "Token Length (i)": "0x07",
+    "Token (..)": "0x0040984456c361b2",
+    "Length (i)": "0x49cd387e",
+    "Packet Number (8..32)": "0x5ed79d2a",
+    "Packet Payload (8..)": "0x08a6d0385c2ff203a9799f91a2c52d6d174328fbaba4c5cfe15ada73c9c5a6e77caf2aaef782c0e7e49e7f5b30a48c39c7a0b707a5ba19deed4d57e14127d95517b7db309eee0a61db2d9ab4b590fa8cf2d3b95d28b504db375a06681331dcd0f3fa43ecdf2abc091e79180714df6dfef77d3a70301f56ac0c416a409b7c809dc5f2377ac906ef12f7c9d2"
+}
+```

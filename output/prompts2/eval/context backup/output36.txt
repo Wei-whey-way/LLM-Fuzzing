@@ -1,0 +1,7 @@
+{'Line 1': 'Initial Packet', 'Line 2': 'Initial Packet', 'Line 3': 'Retry Packet', 'Line 4': 'Retry Packet', 'Line 5': 'Retry Packet', 'Line 6': '0-RTT Packet', 'Line 7': '0-RTT Packet', 'Line 8': '0-RTT Packet', 'Line 9': 'Handshake Packet', 'Line 10': '0-RTT Packet'}
+Unique packet types (GT): 3
+Packet types: dict_keys(['Initial Packet', 'Handshake Packet', '1-RTT Packet', 'Version negotiation'])
+Number of unique packet types: 4
+Valid: [['Version negotiation', 'c0000000000108c4117e37e5c6cdee08b0cf4c542238539f004c2e9acef5b974b2bace6801a01117f0ec7fa4a3c6cbd2d84268b9d3e08a650857724ab2490d15c89b4aec4494908191b8662cae47c9767cc5ed8a0b8f36c05a9fdd3c321e5ce29d238a6c5579f20dda2d7761aa97f697de81e7bb9685acf9fa72c9cc67b7b18201842a4204eae0f9e6994510152b8901cdfeccd0e76c727b1b23685dce466bea322bb6eb7eb7eb1d65fd5d9fbbc0cd70ab13452bfbebb8577e71a18d823c7d22d38d8f1b462b8ba13cd3362d709681b5c23fab3ebe2bc3ebfde49c39e4d8565b53070046a03f820e77e29dff5a11f2a7c734e55cc69e2a437d0252b19f4df0250cd707333f859a7d01d30762870737af6586b05d89e9ac622b17bbce9333ad']]
+Hallucinated: []
+Order: Handshake > Version Nego > 1-RTT (Fail)

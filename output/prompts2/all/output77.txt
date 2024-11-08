@@ -1,0 +1,16 @@
+Line 1: Initial Packet
+
+Line 2: Retry Packet
+
+Line 3: Handshake Packet
+
+Line 4: Handshake Packet
+
+Line 5: Handshake Packet
+
+Line 6: 0-RTT Packet
+
+Missing packets:
+Version Negotiation Packet: c000000001081d5b0380bd0c390708cb30a3e84e3f12db4123456789abcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefab
+
+Line 7: 1-RTT Packet

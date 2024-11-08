@@ -1,9 +1,0 @@
-Line 1: Initial Packet
-Line 2: 0-RTT Packet
-Line 3: Handshake Packet
-Line 4: Handshake Packet
-Line 5: Retry Packet
-Line 6: Version Negotiation Packet
-
-Missing packets:
-Version Negotiation Packet: c0 00 00 00 01 08 1d 5b 03 80 bd 0c 39 07 08 b0 cf 4c 54 22 38 53 9f 00 00 00 00 (example bytes - ensure they fit the specification for Version Negotiation Packet). Line 7: Short Header Packet

@@ -1,9 +1,0 @@
-1: Initial Packet
-2: Handshake Packet
-3: Retry Packet
-4: Retry Packet
-5: Retry Packet
-Missing packets:
-0-RTT Packet: af 00 00 00 01 08 1d 5b 03 80 bd 0c 39 07 08 49 78 08 d2 9a 12 38 a7 40 1a 45 ff 35 af e2 b7 6d d3 ff e9 0b 
-6: Retry Packet
-7: 1-RTT Packet

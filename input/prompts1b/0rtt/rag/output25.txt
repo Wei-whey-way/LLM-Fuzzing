@@ -1,0 +1,17 @@
+```
+Header Form: 1
+Fixed Bit: 1
+Long Packet Type: 1
+Type-Specific Bits: 00
+Reserved: 0
+Packet Number Length: 1
+Version: 0x00000001
+DCID Length: 8
+DCID: 0303030303030303
+SCID Length: 8
+SCID: 4bd20c9f672c0867
+Token Length: 0
+Length: 0x0154
+Packet Number: 0xf3
+Payload: 0669ff3ab7abdfffc2752ba572d8bd84f109c3d
+```

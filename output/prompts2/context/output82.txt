@@ -1,0 +1,12 @@
+Line 1: Initial Packet
+Line 2: Initial Packet
+Line 3: Initial Packet
+Line 4: Handshake Packet
+Line 5: Handshake Packet
+Line 6: Handshake Packet
+Missing packets:
+Version Negotiation Packet: 80000000
+Line 7: Short Header Packet
+Line 8: Short Header Packet
+Line 9: Short Header Packet
+Line 10: Short Header Packet

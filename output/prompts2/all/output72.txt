@@ -1,0 +1,7 @@
+Line 1: Short Header Packet (1-RTT)
+Line 2: Initial Packet
+Missing packets:
+Version Negotiation Packet: d30000000104ff00004400000102030405060708090a0b0c0d0e0f1011121314. Line 3: Initial Packet
+Line 4: Handshake Packet
+Line 5: Handshake Packet
+Line 6: Retry Packet

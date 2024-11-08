@@ -1,0 +1,15 @@
+```json
+{
+    "1-RTT Packet": {
+        "Header Form (1)": "0x1",
+        "Fixed Bit (1)": "0x1",
+        "Spin Bit (1)": "0x1",
+        "Reserved Bits (2)": "0x1",
+        "Key Phase (1)": "0x1",
+        "Packet Number Length (2)": "0x5",  
+        "Destination Connection ID (0..160)": "0769f75d7b06a59e5b7f6ce8771acda5ecaf8c167d6fa4c4f4ffc781996b33a4",
+        "Packet Number (8..32)": "cf1a2f5a",  
+        "Packet Payload (8..)": "6fa6c55cbfe7a1cf82e125573ac63218"
+    }
+}
+```

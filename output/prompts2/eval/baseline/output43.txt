@@ -1,0 +1,6 @@
+{'Line 1 ': 'c80000000108ac0541953cb77f2c08dffe610a3cf7af84004', 'Line 2 ': 'c000000001081d5b0380bd0c390708dffe610a3cf7af84004', 'Line 3 ': 'ea00000001081d5b0380bd0c390708dffe610a3cf7af84401a35', 'Line 4 ': 'e500000001081d5b0380bd0c390708dffe610a3cf7af84401a25', 'Line 5 ': 'e900000001081d5b0380bd0c390708dffe610a3cf7af844018ee', 'Line 6 ': 'ed00000001081d5b0380bd0c390708dffe610a3cf7af8440150a'}
+Unique packet types (GT): 2
+Packet types: dict_keys(['Initial Packet', 'Handshake Packet'])
+Number of unique packet types: 2
+Valid: []
+Hallucinated: []

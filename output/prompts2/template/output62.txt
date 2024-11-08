@@ -1,0 +1,25 @@
+```
+Line 1: Long header packet
+
+Missing packets:
+{Initial packet}: c000000001080c8e88bb4833c08ae6a4b48a1bf2f170000e6f9a5bdf0
+
+Line 2: Long header packet
+
+Line 3: Long header packet
+
+Line 4: Long header packet
+
+Line 5: Long header packet
+
+Line 6: Short header packet
+
+Line 7: Short header packet
+
+Line 8: Short header packet
+
+Missing packets:
+{Short header packet}: 7b1d5b0380bd0c3907527d80365853f836a69909ca430df99dbe
+
+Line 9: Short header packet
+```

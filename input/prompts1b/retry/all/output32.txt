@@ -1,0 +1,11 @@
+"Header Form (1)": "0x1",
+"Fixed Bit (1)": "0x1",
+"Long Packet Type (2)": "0x0",
+"Unused (4)": "0b1011",
+"Version (32)": "0x00000001",
+"Destination Connection ID Length (8)": "0x6",
+"Destination Connection ID (0..160)": "0xb3343cf709a50c4f",
+"Source Connection ID Length (8)": "0xf",
+"Source Connection ID (0..160)": "0x00000021ff000020ff00001fff",
+"Retry Token (..)": "0x00001b5043513150435130",
+"Retry Integrity Tag (128)": "0xaa1a0aea"

@@ -1,0 +1,103 @@
+To extract and place the values from the provided bytestream into the Initial Packet structure defined by RFC 9000 (QUIC Protocol), follow the structure and understand the encoding rules. Here’s a breakdown:
+
+Bytestream:
+```
+ca000000010897aea8afae46e6d8081d5b0380bd0c3907004098d631f7d5411f1536b7ded4e3cb2748f0dd4f66374b3d0864126464170e4539b525b488821b32fdc6e1035273a97c4671ee371103162efdef65fdeb3913d4ee7e7051b12eeaffeba01d04eb23c2163b8bfe5df80834417b58afe8d45d7608dab65b7867b02641c75c1ec61ad330180f726acbe5196e9c64384411f1d15484e310f8f5752d43375982c838bded177b2e7e430c19ebeb2331e6
+```
+
+1. **Header Form (1 bit)**: First bit of the first byte.
+   - Value: `1` (indicating Long Header)
+   
+2. **Fixed Bit (1 bit)**: Second bit of the first byte.
+   - Value: `1`
+   
+3. **Long Packet Type (2 bits)**: Third and fourth bits of the first byte.
+   - Value: `00` (indicating Initial Packet)
+   
+4. **Reserved Bits (2 bits)**: Fifth and sixth bits of the first byte. 
+   - Value: `0` (Reserved bits in the first byte)
+   
+5. **Packet Number Length (2 bits)**: Seventh and eighth bits of the first byte.
+   - Value: `11` (indicating length of packet number to be 4 bytes)
+
+Extracting from the first byte:
+   - Byte: `ca` in binary: `11001010`
+
+   Header Form: `1`
+   Fixed Bit: `1`
+   Long Packet Type: `00`
+   Reserved Bits: `10`
+   Packet Number Length: `10`
+
+```
+Initial Packet {
+   Header Form (1): 0x1,
+   Fixed Bit (1): 0x1,
+   Long Packet Type (2): 0x0,
+   Reserved Bits (2): 0x2,         ;binary'10'
+   Packet Number Length (2): 0x2,  ;binary'10'
+```
+6. **Version (32 bits)**: 4 bytes starting from the second byte.
+   - Value: `00000001` (bytes 2, 3, 4, 5)
+   
+   Version: `00000001` in hexadecimal: `0x00000001`
+   
+7. **Destination Connection ID Length (8 bits)**: 1 byte starting from the next byte.
+   - Value: `08` (length in decimal : 8)
+
+   Destination Connection ID Length: `0x08`
+   
+8. **Destination Connection ID (0-160 bits)**: Next 8 bytes (since length is 8).
+   - Value: `97aea8afae46e6d8`
+
+   Destination Connection ID (8 bytes): `97aea8afae46e6d8`
+   
+9. **Source Connection ID Length (8 bits)**: Next 1 byte.
+   - Value: `08`
+
+   Source Connection ID Length: `0x08`
+   
+10. **Source Connection ID (0-160 bits)**: Next 8 bytes.
+   - Value: `081d5b0380bd0c39`
+    
+   Source Connection ID (8 bytes): `081d5b0380bd0c39`
+
+11. **Token Length (i-variable)**: Length is prefixed varint encoded integer (let’s assume this length is `07`).
+
+   Token Length: `0x07` (7 bytes)
+   
+12. **Token (..)**: Next 7 bytes.
+    - Value: `0004098d631f7d`
+    
+    Token: `0004098d631f7d`
+    
+13. **Length (i-variable)**: Length of the following fields, varint encoded (let's assume this length is `41` hexadecimal).
+
+   Length: `0x41`
+   
+14. **Packet Number (8-32 bits)**: Next 4 bytes (since Packet Number Length is 4). 
+    - Value: `1f1536b7`
+    
+    Packet Number: `1f1536b7
+
+15. **Packet Payload (8..)**: Rest of the packet stream.
+    - Value: `ded4e3cb2748f0dd4f66374b3d0864126464170e4539b525b488821b32fdc6e1035273a97c4671ee371103162efdef65fdeb3913d4ee7e7051b12eeaffeba01d04eb23c2163b8bfe5df80834417b58afe8d45d7608dab65b7867b02641c75c1ec61ad330180f726acbe5196e9c64384411f1d15484e310f8f5752d43375982c838bded177b2e7e430c19ebeb2331e6`
+
+Here's the complete initial packet structure filled:
+```
+Initial Packet {
+   Header Form (1): 0x1,
+   Fixed Bit (1): 0x1,
+   Long Packet Type (2): 0x0,
+   Reserved Bits (2): 0x2,
+   Packet Number Length (2): 0x2,
+   Version (32): 0x00000001,
+   Destination Connection ID Length (8): 0x08,
+   Destination Connection ID (0..160): 0x97aea8afae46e6d8,
+   Source Connection ID Length (8): 0x08,
+   Source Connection ID (0..160): 0x081d5b0380bd0c39,
+   Token Length (i): 0x07,
+   Token (..): 0x0004098d631f7d,
+   Length (i): 0x41,
+   Packet Number (8..32): 0x1f1536b7,
+   Packet Payload (8..);  0xded4e3cb2748f0dd4f66374b3d0864126464170e4539b525b488821b32fdc6e1035273a97c4671ee371103162efdef65fdeb3913

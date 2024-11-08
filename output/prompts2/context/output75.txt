@@ -1,0 +1,14 @@
+Line 1: Initial Packet
+
+Line 2: Zero-RTT Packet
+
+Line 3: Zero-RTT Packet
+
+Line 4: Zero-RTT Packet
+
+Line 5: Zero-RTT Packet
+
+Line 6: Zero-RTT Packet
+
+Missing packets:
+Version Negotiation Packet: c000000001000000000001081d5b0380bd0c390708f0000001

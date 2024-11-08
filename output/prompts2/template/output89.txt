@@ -1,0 +1,32 @@
+```
+{Line 1}: 0xc9
+
+Missing packets:
+{Initial}: c1f00000000108504c6179e5e903000044e6535602ff6718319262176aee9c5de01c8b0f5d0989e6fe1659e16313. {Line 2}: 0xc8
+
+{Line 2}: 0xc8
+{Line 3}: 0xc3
+
+{Line 3}: 0xc3
+{Line 4}: 0xe0
+
+{Line 4}: 0xe0
+{Line 5}: 0xe0
+
+{Line 5}: 0xe0
+{Line 6}: 0xe6
+
+Missing packets:
+{Handshake}: ca00000001081d5b0380bd0c3908748700010800000000000000000000000000000. {Line 7}: 0x7c
+
+{Line 7}: 0x7c
+{Line 8}: 0x77
+
+{Line 8}: 0x77
+{Line 9}: 0x70
+
+{Line 9}: 0x70
+{Line 10}: 0x70
+
+{Line 10}: 0x70
+```

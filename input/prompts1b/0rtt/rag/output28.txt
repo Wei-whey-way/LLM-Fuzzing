@@ -1,0 +1,13 @@
+```plaintext
+Initial Packet {
+  Type: 0xD9
+  Version: 0x00000001
+  DCID Length: 0x08
+  DCID: 0303030303030303
+  SCID Length: 0x08
+  SCID: E2D499E3325C158C
+  Length: 0x4015
+  Packet Number: 0xF49E5027
+  Payload: 435D11AE245EE7787C674E153C9C97EA59
+}
+```

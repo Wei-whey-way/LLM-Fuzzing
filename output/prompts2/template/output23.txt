@@ -1,0 +1,8 @@
+```
+Line 1: Initial Packet
+
+Missing packets:
+Zero-length Token Packet: 4500000000. Line 6: 6a
+Missing packets:
+Handshake Packet: e300000001081d5b0380bd0c390708176525ce2896db8e401015f5b5d1c54e4bb920383fc63cd894575dbcbff549d00000da5083f52ab0. Line 9: 671d
+```

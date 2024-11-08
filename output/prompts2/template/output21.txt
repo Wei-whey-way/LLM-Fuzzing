@@ -1,0 +1,6 @@
+```
+Line 1: Initial Packet Header
+
+Missing packets:
+Handshake Packet: e41d5b0380bd0c39070fc50cf52ff7370100. Line 4: Handshake Packet Header
+```

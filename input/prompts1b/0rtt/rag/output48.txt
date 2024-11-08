@@ -1,0 +1,8 @@
+Bytestream: 
+- Type: 1101 1000
+- Reserved Bits: 00
+- Packet Number Length: 00
+- Destination Connection ID Length: 01
+- Destination Connection ID: 08030303030303030303
+- Packet Number: 08ef9e47
+- Packet Payload: 3199a764c840150200deb9f7b97e26300401633eb5ea901602a4a71b

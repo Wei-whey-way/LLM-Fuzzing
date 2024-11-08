@@ -1,0 +1,14 @@
+Line 1: Initial Packet
+Line 2: Handshake Packet
+Line 3: 0-RTT Packet
+Line 4: Retry Packet
+Line 5: Retry Packet
+Line 6: Retry Packet
+Line 7: Version Negotiation Packet
+Line 8: Version Negotiation Packet
+Line 9: Version Negotiation Packet
+Line 10: Version Negotiation Packet
+
+Missing packets: 
+1-RTT Packet: apple
+81fd601ca30fd03e7ad109af0f28d1765e0fa350caf5e76ed632906b9e0210dd7dbacc43

@@ -1,0 +1,6 @@
+{'Line 1': '"c5"0000000108', 'Line 2': '"cb"0000000108', 'Line 3': '"ce"0000000108', 'Line 4': '"ef"0000000108', 'Line 5': '"e4"0000000108', 'Line 6': '"e6"0000000108', 'Line 7': '"7f"1d5b0380', 'Line 8': '"6c"1d5b0380', 'Line 9': '"6c"1d5b0380', 'Line 10': '"5b"1d5b0380'}
+Unique packet types (GT): 3
+Packet types: dict_keys(['Initial Packet', 'Handshake Packet', '1-RTT Packet'])
+Number of unique packet types: 3
+Valid: []
+Hallucinated: ['"e500000001081d5b0380bd0c390708f5a246a391705fdd403cf91e648cdfacc97f5fba58dfa24c5ed088cdd0f5e3510242697c58e23aed3b1ae65864429f7b24c1470a05ee0cc7""']

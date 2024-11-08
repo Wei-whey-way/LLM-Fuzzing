@@ -1,0 +1,10 @@
+{Line 1}: Initial Packet
+
+Missing packets:
+{Version Negotiation Packet }: cd00000000010000000000010
+
+{Line 2}: Initial Packet
+{Line 3}: Initial Packet
+{Line 4}: Handshake Packet
+{Line 5}: 0-RTT Packet
+{Line 6}: Initial Packet

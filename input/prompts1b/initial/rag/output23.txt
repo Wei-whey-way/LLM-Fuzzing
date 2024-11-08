@@ -1,0 +1,62 @@
+Based on the provided bytestream, let's parse the values and correctly place them into the Initial Packet structure defined by RFC 9000. 
+
+Here's the segmented breakdown of the bytestream `c50000000108e3ba579ef26558ad081d5b0380bd0c3907004098c6cdd8daade96463021658f21046fff5a98b7b3e9514145477709f8da948dba63536f7ca0afe117603ceacc35776d7f6961781ce07a485e396284d945d20ba0a734d51385f15e578eca3976664e1ae8cc2dc00afe04eb8947cebd67c1d116cc7e6172770e91cdb7def28e2b3ce2da606dac37fb15a005da3f03bd0bb636d0f0c358930358daf9dd715d24be1094b2168b5589dcf5f65123c`:
+
+1. **Header Form and Fixed Bit (1 byte)**: `c5`
+   - `Header Form (1)`: 1 (since the first bit is 1)
+   - `Fixed Bit (1)`: 1 (since the second bit is 1)
+   - Note: The first nibble `c` (binary 1100) indicates a Long Header (since the first bit is 1), Fixed Bit is 1, Long Packet Type (`00`), and Reserved Bits (`00`).
+
+2. **Long Packet Type**: `00` (bits 3 and 4 of the first byte)
+3. **Reserved Bits**: `00` (bits 5 and 6 of the first byte)
+4. **Packet Number Length (2 bits)**: `01` (bits 7 and 8 of the first byte), which means Packet Number Length is 2 bytes.
+
+5. **Version (4 bytes)**: `00000001`
+
+6. **Destination Connection ID Length (1 byte)**: `08` 
+   - Destination Connection ID Length: 8 bytes
+
+7. **Destination Connection ID (8 bytes)**: `e3ba579ef26558ad`
+
+8. **Source Connection ID Length (1 byte)**: `08`
+   - Source Connection ID Length: 8 bytes
+
+9. **Source Connection ID (8 bytes)**: `081d5b0380bd0c39`
+
+10. **Token Length (1 byte variable int)**: `07`
+    - Indicates token length is 7 bytes
+
+11. **Token (7 bytes)**: `004098c6cdd8da`
+
+12. **Length (varint)**: `ade9`
+    - The Length indicates the length of the remaining payload which is the rest of the packet.
+
+13. **Packet Number (2 bytes)**: `6463` 
+    - corresponds to packet number based on Packet Number Length which is indicated as 2 bytes earlier.
+
+14. **Packet Payload**: Remaining bytes
+
+**Formed JSON object for Initial Packet:**
+```json
+{
+  "Initial Packet": {
+    "Header Form (1)": "0x1",
+    "Fixed Bit (1)": "0x1",
+    "Long Packet Type (2)": "0x0",
+    "Reserved Bits (2)": "0x0",
+    "Packet Number Length (2)": "0x1",
+    "Version (32)": "0x00000001",
+    "Destination Connection ID Length (8)": "0x08",
+    "Destination Connection ID (0..160)": "0xe3ba579ef26558ad",
+    "Source Connection ID Length (8)": "0x08",
+    "Source Connection ID (0..160)": "0x081d5b0380bd0c39",
+    "Token Length (i)": "0x07",
+    "Token (..)": "0x004098c6cdd8da",
+    "Length (i)": "0xade9",
+    "Packet Number (8..32)": "0x6463",
+    "Packet Payload (8..)": "0x021658f21046fff5a98b7b3e9514145477709f8da948dba63536f7ca0afe117603ceacc35776d7f6961781ce07a485e396284d945d20ba0a734d51385f15e578eca3976664e1ae8cc2dc00afe04eb8947cebd67c1d116cc7e6172770e91cdb7def28e2b3ce2da606dac37fb15a005da3f03bd0bb636d0f0c358930358daf9dd715d24be1094b2168b5589dcf5f65123c"
+  }
+}
+```
+
+This detailed breakdown matches the fields specified by RFC 9000 for a QUIC Initial Packet: ensuring careful adherence to each field's length and content definition.

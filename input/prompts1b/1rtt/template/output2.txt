@@ -1,0 +1,9 @@
+"Header Form (1)": "0x1",
+"Fixed Bit (1)": "0x1",
+"Spin Bit (1)": "0",
+"Reserved Bits (2)": "10",
+"Key Phase (1)": "1",
+"Packet Number Length (2)": "00",
+"Destination Connection ID (0..160)": "c85431ab2981b6ecadb423af2d548b2ec8d3ac47",
+"Packet Number (8..32)": "6",
+"Packet Payload (8..)": "d658a4a85d6b3c71526f610a34e9b07ab0be0de74ea25c6f7549a07776b4d3794bdd32ab863bdb8ab2a7e127255d27a032f41e9b05ca27c1aa47b9eb64da16d00fef03a3d3c3cd199162f777e0baebc4729f1ab254367c5cefa6f4c3179cec90fe1f1f350c3a4aa7dad657bf52137a94c833ab5337bfd00dacc4cdcdeed0bf9ad69ef835009a3dc1ba018104255f072cbd6b2e3c4eb5565ac9026d24503209ccd9ece5f994faf7ac2ff3b96c75272f822eb87c..."

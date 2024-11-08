@@ -1,0 +1,9 @@
+Line 1: Initial Packet
+Line 2: 0-RTT Packet
+Line 3: Handshake Packet
+Line 4: Retry Packet
+Line 5: Version Negotiation Packet
+Line 6: {Line 6 packet, not long header or unrecognized due to short length}
+
+Missing packets:
+1-RTT Packet: 4103abcdef. Line 7: {anything after the initial is valid for 1-RTT}

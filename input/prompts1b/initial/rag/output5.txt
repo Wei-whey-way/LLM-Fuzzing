@@ -1,0 +1,84 @@
+Let's decode the given bytestream and place the values into the Initial Packet as specified by the QUIC protocol (RFC 9000).
+
+Bytestream:
+```
+ce0000000108a5c52d7cf9d08f7b081d5b0380bd0c3907004098814d5010809079bad736125095f1ba555406f62299a78483fee463db0d5d4d063423b7e4866202702cb8d796caee17cab18ab2f3b46a761fdccee81163a56de26ff1509f42cf0d7b0a93b3cf315f233d19569b1bb05e93f641cb1259ddc623f0f7b2658fe3ce8042d7342af98b442e37ac68d90a18f62f8e5c5dafda86bac49756cbb436bcad0067c3b99d13638d10cb28b28955f06c84da
+```
+
+Step-by-step parsing of the bytestream:
+
+1. **Header Form** (1 bit): 
+   - 'c' in hex is `0b1100`
+   - First bit is `1`
+   - `Header Form = 0x1`
+
+2. **Fixed Bit** (1 bit):
+   - Second bit is `1`
+   - `Fixed Bit = 0x1`
+
+3. **Long Packet Type** (2 bits):
+   - Next 2 bits are `00`
+   - `Long Packet Type = 0x0`
+
+4. **Reserved Bits** (2 bits):
+   - Next 2 bits are `11`
+   - `Reserved Bits = 0x3`
+
+5. **Packet Number Length** (2 bits):
+   - Last 2 bits are `00`
+   - `Packet Number Length = 0`
+
+Bytestream: `ce0000000108a5c52d7cf9d08f7b081d5b0380bd0c3907004098814d5010809079bad736125095f1ba555406f62299a78483fee463db0d5d4d063423b7e4866202702cb8d796caee17cab18ab2f3b46a761fdccee81163a56de26ff1509f42cf0d7b0a93b3cf315f233d19569b1bb05e93f641cb1259ddc623f0f7b2658fe3ce8042d7342af98b442e37ac68d90a18f62f8e5c5dafda86bac49756cbb436bcad0067c3b99d13638d10cb28b28955f06c84da`
+
+6. **Version** (32 bits):
+   - Next 4 bytes are `00000001`
+   - `Version = 0x00000001`
+
+7. **Destination Connection ID Length** (8 bits):
+   - Next byte is `08`
+   - `Destination Connection ID Length = 0x08`
+
+8. **Destination Connection ID** (0..160 bits):
+   - `08` bytes (64 bits) = `a5c52d7cf9d08f7b`
+   - `Destination Connection ID = 0xa5c52d7cf9d08f7b`
+
+9. **Source Connection ID Length** (8 bits):
+   - Next byte is `08`
+   - `Source Connection ID Length = 0x08`
+
+10. **Source Connection ID** (0..160 bits):
+    - `08` bytes (64 bits) = `081d5b0380bd0c39`
+    - `Source Connection ID = 0x081d5b0380bd0c39`
+
+11. **Token Length** (i):
+    - Next byte is `07`
+    - `Token Length = 0x07`
+
+12. **Token** (..):
+    - `07` bytes = `004098814d501080`
+    - `Token = 0x004098814d501080`
+
+13. **Length** (i):
+    - Next byte is `90`
+    - `Length = 0x90`
+
+14. **Packet Number** (8..32 bits):
+    - Next 4 bytes (calculated from Packet Number Length which should be 4 bytes or 32 bits) = `79bad736`
+    - `Packet Number = 0x79bad736`
+
+15. **Packet Payload** (8.. bytes):
+    - Remaining bytes = `125095f1ba555406f62299a78483fee463db0d5d4d063423b7e4866202702cb8d796caee17cab18ab2f3b46a761fdccee81163a56de26ff1509f42cf0d7b0a93b3cf315f233d19569b1bb05e93f641cb1259ddc623f0f7b2658fe3ce8042d7342af98b442e37ac68d90a18f62f8e5c5dafda86bac49756cbb436bcad0067c3b99d13638d10cb28b28955f06c84da`
+    - `Packet Payload = 0x125095f1ba555406f62299a78483fee463db0d5d4d063423b7e4866202702cb8d796caee17cab18ab2f3b46a761fdccee81163a56de26ff1509f42cf0d7b0a93b3cf315f233d19569b1bb05e93f641cb1259ddc623f0f7b2658fe3ce8042d7342af98b442e37ac68d90a18f62f8e5c5dafda86bac49756cbb436bcad0067c3b99d13638d10cb28b28955f06c84da`
+
+Summary in "Initial Packet" format:
+
+```json
+{
+  "Header Form": "0x1",
+  "Fixed Bit": "0x1",
+  "Long Packet Type": "0x0",
+  "Reserved Bits": "0x3",
+  "Packet Number Length": "0",
+  "Version": "0x00000001",
+  "Destination Connection ID Length": "0x08",
+  "Destination Connection ID": "0xa5c52d7cf9d08f7b",

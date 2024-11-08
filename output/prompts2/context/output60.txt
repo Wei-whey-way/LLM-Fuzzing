@@ -1,0 +1,8 @@
+Line 1: Initial Packet
+Line 2: Handshake Packet
+Retry Packet: f000000001080b71f14c509650950866375ae422a1d2cb0044e6a2fa091f1dbde050001234567890abcdef
+Line 3: Initial Packet
+Line 4: Retry Packet
+Line 5: Initial Packet
+Version Negotiation Packet: 800000001100080b71f14c5096509508663741123400000123456789abcdef0001
+Line 6: Handshake Packet

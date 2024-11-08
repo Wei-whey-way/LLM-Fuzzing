@@ -1,0 +1,12 @@
+Bytestream: 
+```
+d2                  						// First byte indicating it's a 0-RTT packet
+00 00 00 01        						// Version
+08                   						// Destination Connection ID Length
+03 03 03 03 03 03 03 03	// Destination Connection ID
+08                   						// Source Connection ID Length
+9f e2 f4 48 46 c4 fe f8	// Source Connection ID
+40                   						// (Variable-length integer encoding) Token Length, value varies depending on context.
+15 78 26 4e 6f 66 b8 a2 0b fa 17 57 93 f1 0f // Rest of the bytestream representing the payload
+10 c3 bf c0 06 cf
+```

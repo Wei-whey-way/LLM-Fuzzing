@@ -1,0 +1,13 @@
+```json
+{
+  "Header Form (1)": "0x1",
+  "Fixed Bit (1)": "0x1",
+  "Spin Bit (1)": "0",
+  "Reserved Bits (2)": "0",
+  "Key Phase (1)": "0",
+  "Packet Number Length (2)": "0b11", 
+  "Destination Connection ID (0..160)": "0xd5b0380bd0c39079",
+  "Packet Number (8..32)": "0x9533ca",
+  "Packet Payload (8..)": "0xcfc598286e6d17bc7b1ece885f5d5acf746c6b187dc4"
+}
+```

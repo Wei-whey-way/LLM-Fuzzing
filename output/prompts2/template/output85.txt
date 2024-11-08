@@ -1,0 +1,13 @@
+```
+Line 1: Initial Packet
+
+Missing packets:
+Short Header Packet: 700001324534f29a4532d82f3412a. Line 4: Short Header Packet
+Line 4: Initial Packet
+Line 5: Initial Packet
+Line 6: Initial Packet
+Line 7: Handshake Packet
+Line 8: Handshake Packet
+Line 9: Handshake Packet
+Line 10: Handshake Packet
+```

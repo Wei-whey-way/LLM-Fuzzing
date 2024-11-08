@@ -1,0 +1,21 @@
+```json
+{
+  "Initial Packet": {
+    "Header Form (1)": "0x1",
+    "Fixed Bit (1)": "0x1",
+    "Long Packet Type (2)": "0x0",
+    "Reserved Bits (2)": "0x1",
+    "Packet Number Length (2)": "0x0",
+    "Version (32)": "0x00000001",
+    "Destination Connection ID Length (8)": "0x08",
+    "Destination Connection ID (0..160)": "0xd9af124ed7d22344",
+    "Source Connection ID Length (8)": "0x08",
+    "Source Connection ID (0..160)": "0xc85431ab2981b6ec",
+    "Token Length (i)": "0x00",
+    "Token (..)": "",
+    "Length (i)": "0x44",
+    "Packet Number (8..32)": "0xe6f4d183",
+    "Packet Payload (8..)": "0x3316e76864d5e3458cd9f18602d251258d0805e597b6191736aa705354ee33382b4060eb35ed1c952d2a51c9d0fb833aae197c0e5ca2d038a4124b39765a85af6d0c6c77acca8b3cd6b3d26efab3e66d9ef88a2d9ed569df0a4f36219f4e07da619d65d22808423b3d68aa2ed6a20f31926f9d62bd1841a75172d045390d825e5ffc48cff53dc90ce991db13340c73a015ce83cf07de32eec6959698c953dec006111370194498c5af2a43b784c4e4c3913d6db802710b76440f25b58602afac0d0702bf9be844764a332a2ec3fdcc09b5aaa8d660253c8a745a0f0459ef04c7f1e1a7a79d027bec4d9db6431820b39d469cb09a2c16b23be2bc574aafef10cd292626351df68734ce0afeb7af5f4635feaad2c01db65ee5e26c789d0ac203dd5a74bc7bc5bdc5541f726ddea7687f360c040bd0a07b23a79f2669eba5b726d96d7dd15b681d5495224bc10ad1bed40fbb4a25cf671ba4568b0c78b2d53cd36d2e19e3da71199446f8f5640496c4112969a68058789937408..."
+  }
+}
+```

@@ -1,0 +1,44 @@
+To parse the provided hex string into the QUIC Initial Packet format, we need to follow the structure and fields defined in RFC 9000. Let’s parse the `bytestream` step by step:
+
+1. **Header Form (1 bit)**: The Initial packet must have the most significant bit set, indicating a long header.
+2. **Fixed Bit (1 bit)**: This must be set to 1 for all QUIC packets.
+3. **Long Packet Type (2 bits)**: 01 signifies an Initial packet.
+4. **Reserved Bits (2 bits)**: These are reserved for future use and must be set to 0.
+5. **Packet Number Length (2 bits)**: Here we get the length of the Packet Number field.
+6. **Version (32 bits)**: Version of the QUIC protocol.
+7. **Destination Connection ID Length (8 bits)**: Length of the Destination Connection ID.
+8. **Destination Connection ID (0..160 bits)**: Actual Destination Connection ID.
+9. **Source Connection ID Length (8 bits)**: Length of the Source Connection ID.
+10. **Source Connection ID (0..160 bits)**: Actual Source Connection ID.
+11. **Token Length (i): <Value>**: Length of the Token field.
+12. **Token (..)**: The Token itself.
+13. **Length (i)**: Length of the rest of the packet.
+14. **Packet Number (8..32)**: Actual Packet Number.
+15. **Packet Payload (8..)**: Payload of the packet.
+
+Now, given the `bytestream`:
+
+```bash
+c10000000108a00c227cfaf33a3208bdec4bc5ab6162de0044e66c9438bb5efea12df79936649179cea3ff13d0f8d98828af1ebad617358b9e4174587090b2edae9edf14dac5cfb6d43fb52bac662a01fae3d80ee1bc6e60d9505c9d8951eda02bbb3adf31422827e3fe744c1f351adb0ead89603f63c8bf82ad47a776ca365fcbd8376d76fa203d48516b2790b92164dd57004b186547a7b25df0f82811801d06d6e1a912eec5ebb563aef9d17e307d159b5dfada991abb282d0cc95ad60a53596366d738498e95fb5c5ef17d799149292a6c5eafd8396f30dfd2515b9dc452fe3fc31b7e666ac06c67fabac17a4d7d42c6c299c51b038d8da2bae794786dc121d94c4a621d45f5e3a40aaf9b10152eb63c38077c83d0bc2ff283769cfd8061be6dc05f1867e9ecc8897e3cecbcc5935ffeeae40236bb4ee9e1f3376d5f42056401c2f467f6ae964192af4024c53d209f0b1771955d1dbf63eff3a29399229ba86a08017683e4ebb9b0fc51e9f83b22eabb999b478fbdc6c603b309d834f6df8ea03d022dcd5ec5d5e6be03f19fd7a920721c7f83b64e903ff59c693d4eebaed2e8087878ea4a09a6a6e142714a4bb3363cf96bb594885e221ee16571ebdbcf7c4adfaa179e7bad5f9f55898c0ba976208676de005b224cc29311eb47b9b53d31f3505d8b93bd77158da86f8b1dfaef519c4326bf4674b9c7cfa3b97b51eb682970e14028c516f30469bbac9591ba130f0a91b01e84a67fa46f49d28f8e93211afa6e69e531eb6158b0d70674b29de74df81858e2bf441240487662431bbc11241f96e98ae7ca8b7162e9b2186cb6c6972edff45a85460ac45a7e3cdccd9608893de05d7c68c02142754e5979668be6ccb0efd4ba914285091731d9e970fd5b0be3f87106072c9e45a100a9dee1a4e56a5f19ea3f98e652d29775c648d89934998ba12c083b1e8bc802934e7f34409d4b14eb61662f8acf7481f7fd913ab87cf79df982c1f3b96429d8310ac6ade0126ead10df4531b503d37e9c471eeb16e13d1c4071fb169ee1f5ae88ec5e762d84daf47ac2b950b224c7fe6d0711009e54c5274da96be89e78774a1fb9db2b661a120434d6480d0c4a7a729008e6217ce673cecb5e653a93efe72a32193d376623b37184464f119abfb771b585de2778d42cbd6bfeaa8e4ef851c449fa50766b1925c05dccbaa8ecc5b87b23311135b5dfb0dcdd64cba6e411b89b2f63b06ba0961233a8c7b312e2123f0ebb3d57058ba0e982418c07e73e77f62dfccea1c61ed6d5cc0a57a83dd9792c13b61751842387cb37e30d077bc5fd0e5607373322e88576a43b996e7c61e400af3f8596d333921d791591db31b5984bafa0fd8581ae94a94bb16f02dd467c349652d1da020053af881320885fc402b6ebd9bd251ef639d231011978702242133577b86d3217c905cb2eb5295dd5a1dad1215ee63197da900b8af44d1d176e68f9cf5a31a58cd632e87031aca2389b679f26703463c17036c2f3d371ecf5925c468ad8ec09c70638b8d3ed8fe869bc544bc647973b385b0c58b322c91babee3db1dd82d0ffcc18fc6af87a5d8053d7e4680d214b16c4910bdb3ab68c9bdc6be8363f0a2d3e4ea7df874f620eadc2ce2effbae97730f1e3774bf774632753addccaebe4da0e5a72e712dac3c99e718fa139b373ddd925f12691ca7658d44e94f3e6cff703b3ce01b833f78ebb0a458cb11f1e27fba1984a33f8bdd36c4f9d77e359020731e0fb24a0105a57290d4edb5f8ebe88170d329c2ba7ce3c60feeca9c9768d95a3939be5
+```
+
+### Step-by-step Parsing:
+
+#### 1. Header Form (1): `0xc1`
+   - `c1` in binary: `11000001` 
+   - First bit determines the Header Form = `1`
+   - Second bit (Fixed Bit) = `1`
+   - Next two bits (Long Packet Type) = `00` (Initial Packet)
+   - Next two bits (Reserved) = `00`
+   - Next two bits (Packet Number Length) = `00` (interpreted as 1 byte)
+
+#### 2. Version (32): `00000001`
+   - Version: `00000001` (in hex `0x1`)
+
+#### 3. Destination Connection ID Length (8): `08`
+   - Length: `08` (8 bytes)
+
+#### 4. Destination Connection ID (0..160): `a00c227cfaf33a32`
+   - This field of 8 bytes: `a00c227cfaf33a32`
+
+#### 5. Source Connection ID Length

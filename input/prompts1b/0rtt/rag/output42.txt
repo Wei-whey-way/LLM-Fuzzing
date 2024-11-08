@@ -1,0 +1,9 @@
+0-RTT Packet:
+d4 00000001 08 0303030303030303 0881ce89108178524640152eb7637a8aca52e64512829fc2969e2477989fd30f
+
+Long Header Packet Type: d4 (0-RTT)
+Version: 00000001
+Destination Connection ID Length: 08
+Destination Connection ID: 0303030303030303
+Packet Number Length: 08
+Packet Number: 81ce89108178524640152eb7637a8aca52e64512829fc2969e2477989fd30f

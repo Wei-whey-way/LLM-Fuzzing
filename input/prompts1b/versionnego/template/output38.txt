@@ -1,0 +1,8 @@
+"Header Form (1)": "0xab",
+"Unused (7)": "0x0000000",
+"Version (32)": "0x00000008",
+"Destination Connection ID Length (8)": "0x56",
+"Destination Connection ID (0..2040)": "0x8c28995e46d53a08edc0fdfe2d4e56d0",
+"Source Connection ID Length (8)": "0x00",
+"Source Connection ID (0..2040)": "0x",
+"Supported Version (32)":  "0x00000016", "0xb3343cf7", "0x09a50c4f", "0xf000022f", "0xf000021f", "0xf000020f", "0xf00001f", "0xf00001d", "0xf00001e", "0xf00001c", "0xf00001b5", "0x50435131", "0x50435130", "0x6afa3aba"

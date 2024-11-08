@@ -1,0 +1,16 @@
+```
+{Line 1}: Initial
+{Line 2}: Handshake
+
+Missing packets:
+Zerortt: c300000001081d5b0380bd0c390708e566174c69f468d1401d53af20d32e2e565b19a1b2ddc94339aa0ecf7b463a2f69f. {Line 3}: 0-RTT
+{Line 3}: 1-RTT
+{Line 4}: 1-RTT
+{Line 5}: 1-RTT
+{Line 6}: Retry
+{Line 7}: Retry
+{Line 8}: Retry
+
+Missing packets:
+Handshake done: c400000001081d5b0380bd0c390708e566174c69f468d1403f5379c281fc6cb1b9dfc5e8474769c277bf0e7b2be8eddb. {Line 9}: Handshake Done
+```

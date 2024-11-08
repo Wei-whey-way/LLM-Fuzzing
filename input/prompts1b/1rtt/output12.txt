@@ -1,0 +1,1 @@
+"1-RTT Packet": { "Header Form (1)": "0x1", "Fixed Bit (1)": "0x1", "Spin Bit (1)": "1", "Reserved Bits (2)": "11", "Key Phase (1)": "0", "Packet Number Length (2)": "01", "Destination Connection ID (0..160)": "1d5b0380bd0c390789ba9d69", "Packet Number (8..32)": "60", "Packet Payload (8..)": "21ef87a3ccefe7049d2e66e0324032fe48f72e3b2d" }

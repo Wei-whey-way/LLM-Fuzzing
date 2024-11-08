@@ -1,0 +1,14 @@
+```
+Line 1: Initial Packet
+
+Missing packets:
+0-RTT Packet: cf00000001081d5b0380bd0c390708bdf3c7688d8da53f401234567890abcdef. Line 2: 0-RTT Packet
+Line 2: Handshake Packet
+Line 3: Short Header Packet
+Line 4: Short Header Packet
+Line 5: Short Header Packet
+
+Missing packets:
+New Connection ID Packet: e700000001081d5b0380bd0c390708bdf3c7688d8da53f401234567890abcdef. Line 6: New Connection ID Packet
+Line 6: Retransmission Packet
+```

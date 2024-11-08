@@ -1,0 +1,2 @@
+\nInitial Packet:
+Header Form (1): 0x1\\r\\n Fixed Bit (1): 0x1\\r\\n Long Packet Type (2): 0x0\\r\\n Reserved Bits (2): <Value>\\r\\n Packet Number Length (2): <Value>\\r\\n Version (32): <Value>\\r\\n Destination Connection ID Length (8): <Value>\\r\\n Destination Connection ID (0..160): <Value>\\r\\n Source Connection ID Length (8): <Value>\\r\\n Source Connection ID (0..160): <Value>\\r\\n Token Length (i): <Value>\\r\\n Token (..): <Value>\\r\\n Length (i): <Value>\\r\\n Packet Number (8..32): <Value>\\r\\n Packet Payload (8..): <Value>\\r\\n

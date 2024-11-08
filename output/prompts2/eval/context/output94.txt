@@ -1,0 +1,7 @@
+{'Line 1': 'Short Header Packet', 'Line 2': 'Initial Packet', 'Line 3': 'Initial Packet', 'Line 4': 'Handshake Packet', 'Line 5': 'Handshake Packet', 'Line 6': 'Handshake Packet', 'Line 7': 'Retry Packet'}
+Unique packet types (GT): 2
+Packet types: dict_keys(['Initial Packet', 'Handshake Packet'])
+Number of unique packet types: 2
+Valid: []
+Hallucinated: ['f1ce00000001112233445566778899aabbccddeeff']
+Order: Hallucination

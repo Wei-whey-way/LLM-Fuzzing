@@ -1,0 +1,66 @@
+To construct the QUIC Initial Packet as per RFC 9000 from the given hex string, we need to extract values based on the specified fields. 
+
+Let's break down the given bytestream and assign values accordingly:
+
+Bytestream: `c700000001081d5b0380bd0c390708eb374b904e2d78e60044e6743fe60620d4bc3086be24749866eac7912757592e3acd101ba1544faa03064498a9c970af70a06907a74f6e5a397501d2d801f39a10cea9267d6e8b87994243f7351f927d31a307e9e5884e8524be0431d7bd0f0c7c309e09035ef94024998d42b7735ea03007f38aaa47117a469da96edda7f0eb81fd56d4d726068e541c6a51b4e470498510909494bcfcce7a53ec1310e796ea9f1af6bae6c648bac81bbc66015f0d1c3b3c18e4fb246d6b2479a5bc2f45c50abea569d41536accae6a7b3ee54d39cd319cbabfeddf7e2520d3c6db5981c0389b64aa80324aeb5affae28771dfc24f66f6b091ca2f0f33ce175d1031ddc9740f33515847f2b959eae3e9be979e0d1dfc16474a086ac7d680f096e1e4ddd33a08edf96796c41e206fbffe4fef1893daf053b718d66306f0f62224a322cec5f7d86dc9b8540d4d2dde8e55275321f3457bdd1af6bbd8ee34778958bbbe624a4cba92de2da2ed965e602d544fec60f5921598549dd06b51255eb7ed8909d11d4d305005453d1d9a3b2a80c384b403e474e6e861cd3204c0da83fd075d14c5ee0ab4893613b4b4c2c3d6da14c211b89ada148c39a16b4f3eac6e98348d5763d36bf4f5075e9d5945b2dd27137c9280bae20f76c96166669ba2114193326190aa8aaec87292d7c05eac5af129503799e7e85f9d92ac3782acda4759e2f0c928f641c77ce30761681bafeec59226ea15e7ccae2fd71b6131ef8579461a76e0ff3efe277a2d5eef8a0136a199b14b54d9b0047214757775c06e107f4d52a6a257fae4fd94d49cc41eb5283c88164a9340383162f5e8126b6eb3fb2a0023d0671afd46f5ba952ee4926f2944bbb1d4d47ef7e17fe0dc2660100bf72178de204beed3d0fed9b83d52a8f12576f2ae96a3806458c4afa371ec085dad0cdd69ddec1897733a1964786729799688d213168ceda96263ee3d708187bb3e3f6f2f0af72bc6516b0812fbcf57f75065ba9e032d8d220df176266e1793945369f2da1d5e1ec91746f2781256f01a48b9cd125d9730270e6b503b1c8b192e57848a486cae66dd6a17994822e7743e4a1e4cc31d1e3e64ccbb74317878f94b03e6867c26b1f166ee58ea808bea31245973f98623e61e491ddfeeff260f3bed5d3e65a97804737438fa47dcc8803184db26f393da5c9589949cd65bbaba19500fbf985b3412a095ff5f19473ae8cd1ba9849bde33c5e0f7735b984476040221d42ffe7d3b73022cb71ab143efdfa3e68f9e5eaee9f58e769fbd71df38d33e52d8d198b31d478fe053f5b6aef22da8105875ea32a85758a8f38f41d1cd91cb3753d08b4159007d46a408602356a4546b1c6f1d8ed1f30b730e7b7b51541280f527b45361703ffe9b0cc4600e72435597a9d45c0fff39c1b76ed81b2a3df8517ea8318d133c92351658a503fd86387beffe30f991731f9ba9c02a2bc942d971cdfdf98663a04f9bef53f04222c9976abe412d63af9ad169428344052eba19705d61a310b3104be72d8c97c567dda2744cee11347fefdaa694d9259b7486905dfbbfc690b72845dca24bc710567af9e6b9f940fea362b8c567ff1d33`
+
+### Breakdown:
+
+1. **Header Form (1 bit)**:
+    - First bit is `1`, indicating a long header.
+    - `Header Form` is `0x1`.
+
+2. **Fixed Bit (1 bit)**: 
+    - Second bit is `1`.
+    - `Fixed Bit` is `0x1`.
+
+3. **Long Packet Type (2 bits)**:
+    - Third and fourth bits `00`.
+    - `Long Packet Type` is `0x0`.
+
+4. **Reserved Bits (2 bits)**: 
+    - Fifth and sixth bits `00`.
+    - `Reserved Bits` set to `0x0`.
+
+5. **Packet Number Length (2 bits)**:
+    - Seventh and eighth bits `11`.
+    - `Packet Number Length` is `0x3`.
+    
+6. **Version (32 bits)**: 
+    - Next four bytes are `00 00 00 01 → 0x00000001`.
+    - `Version` is `0x00000001`.
+
+7. **Destination Connection ID Length (8 bits)**:
+    - Next byte is `08` → `8 bytes`.
+    - `Destination Connection ID Length` is `0x08`.
+
+8. **Destination Connection ID (0 to 160 bits)**:
+    - Next `8 bytes` are `1d5b0380bd0c3907`.
+    - `Destination Connection ID` is `0x1d5b0380bd0c3907`.
+
+9. **Source Connection ID Length (8 bits)**:
+    - Next byte is `08` → `8 bytes`.
+    - `Source Connection ID Length` is `0x08`.
+
+10. **Source Connection ID (0 to 160 bits)**:
+    - Next `8 bytes` are `08eb374b904e2d78`.
+    - `Source Connection ID` is `0x08eb374b904e2d78`.
+
+11. **Token Length (i)**:
+    - Next byte is `e6` indicating length of `0x00` (no additional token).
+    - `Token Length` is `0x00`.
+    - There is no `Token`.
+
+12. **Length (i)**:
+    - Next byte `44` → set length value.
+    - `Length` is `0x44`.
+    
+13. **Packet Number (8-32 bits)**:
+    - Next `4 bytes` (based on packet number length `3` bytes from field 5) are `e6743fe6`.
+    - Packet Number is `0x6743fe6`.
+
+14. **Packet Payload (8-..)**
+    - Remaining `payload` bytes:
+    - `20d4bc3086be24749866eac7912757592e3acd101ba1544faa03064498a9c970af70a06907a74f6e5a397501d2d801f39a10cea9267d6e8b87994243f7351f927d31a307e9e5…`
+
+To summarise, below is the Initial Packet breakdown

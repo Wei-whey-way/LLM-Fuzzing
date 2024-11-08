@@ -1,0 +1,6 @@
+{'Line 1': 'Packet header', 'Line 2': 'Packet header', 'Line 3': 'Packet header', 'Line 4': 'Packet header', 'Line 5': 'Packet header', 'Line 6': 'Packet header', 'Line 7': 'Packet header', 'Line 8': 'Packet header', 'Line 9': 'Packet header', 'Line 10': 'Packet header'}
+Unique packet types (GT): 3
+Packet types: dict_keys(['Initial Packet', 'Handshake Packet', '1-RTT Packet'])
+Number of unique packet types: 3
+Valid: []
+Hallucinated: []

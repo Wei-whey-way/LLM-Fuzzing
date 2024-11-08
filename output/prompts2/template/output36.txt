@@ -1,0 +1,18 @@
+```
+Line 1: Initial Packet
+Line 2: 0-RTT Packet
+
+Missing packets:
+Handshake Packet: c300000001081d5b0380bd0c390708b0cf4c542238539f00b1f1734323b97b5a804dba5f816892103177fb34f82a5c2dbad175fa03eb6968beefb22d0ef135de8953ed9d08245cd. Line 3: Packet header of the line
+Line 3: Handshake Packet
+Line 4: Handshake Packet
+Missing packets:
+0-RTT Packet: c100000001081d5b0380bd0c390708b0cf4c542238539f00831d915bee2dad32e71a3ad039126ee85845b4f0f83cc6bec24adfc3a179f8324f34893b8088e3f19a5d18bedee31e3774d2d76df8b87db625824370. Line 5: Packet header of the line
+Line 5: Retry Packet
+Line 6: Retry Packet
+Line 7: Retry Packet
+Line 8: Retry Packet
+Line 9: Handshake Packet
+Line 10: Retry Packet
+Finished
+```

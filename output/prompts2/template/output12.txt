@@ -1,0 +1,19 @@
+```
+Line 1: Initial Packet
+
+Missing packets:
+Handshake Packet: cf00000001081d5b0380bd0c390708b0cf4c542238539f0044e6aaae90bde681600ba7e948677e7b2aba280def36c9a28
+
+Line 2: Initial Packet
+Line 3: Initial Packet
+Line 4: Initial Packet
+Line 5: Initial Packet
+
+Missing packets:
+Short Header Packet: 6a1d5b0380bd0c390720df21d50e6eda88c21922e4e37fb7745510d45a5b233f985bf1b435
+
+Line 6: Short Header Packet
+Line 7: Short Header Packet
+Line 8: Short Header Packet
+Line 9: Short Header Packet
+```

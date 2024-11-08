@@ -1,0 +1,13 @@
+```json
+{
+  "Header Form (1)": "0x1",
+  "Fixed Bit (1)": "0x1",
+  "Spin Bit (1)": "0x1",
+  "Reserved Bits (2)": "0x1",
+  "Key Phase (1)": "0x1",
+  "Packet Number Length (2)": "0x3",
+  "Destination Connection ID (0..160)": "0x7f1d5b0380bd0c3907adde37255da4ca",
+  "Packet Number (8..32)": "0xa456741f",
+  "Packet Payload (8..)": "0xffb704ebf8e2a95224bd8441cb4b74ad1e382246ce173c712af41048272f5388de9e807100068d3b0244f5e6d0392711d286ba4a6fbb9ba6f55d215ac859577d1c18554cc7e360d2a43d68e293385198a7a3ed4a36fd5c6c5dd2b094abfc07fa1b7e1336e98d4190f99cbe809e826ece13e71bc7d724e79e22505c8c36566952702e1bc60b85e345558be925d75a95f2f89078928f643195ca5ff6b1f3e135d5599213f036819fea332c362611cf2ce17644c3e52fe55294fcef1d59ef6fabac965962f3af3633983ba677ea9c"
+}
+```

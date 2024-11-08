@@ -11,5 +11,5 @@ Source Connection ID (0..160): 0x1d5b0380bd0c3907
 Token Length (i): 0x00
 Token (..): None
 Length (i): 0x4e6
-Packet Number (8..32): 65963262
+Packet Number (8..32): 0x65963262
 Packet Payload (8..): 2cdc5aedf5c8c969db3a9539efab62f6a042e81dc8a50c4c90f175eaedbd8f1f6f2f43b116e1e25b8355db951fba6faf057827fb8accfe3c46d087fb13dc5a83f64b9d02a205485330ad5a708cefe3bcff6a4812744ef95f66a9137352d987ddbdbc6d4885fd0d5f148e6cd5e55027a38ded9595bb3bea3a2875852909cfa4c3f3e3976cfc62ffc055ba346838e71b6d5832828b

@@ -1,0 +1,28 @@
+Line 1: Version Negotiation Packet
+
+Missing packets:
+{Initial Packet}: c300000001081d5b0380bd0c390708b957a0affb9ef2e00044e6a24664a9d947ab329c1e2bb9da6ad2db340d0c8a60bc3ad
+
+Line 2: Initial Packet
+
+Missing packets:
+{0-RTT Packet}: e300000001081d5b0380bd0c3907088c8c34c74384628a405a4272e6f208a498ca92bf94469a61e1fa5b73b4854c1cb6
+
+Line 3: Initial Packet
+
+Line 4: Handshake Packet
+
+Line 5: Handshake Packet
+
+Line 6: Handshake Packet
+
+Missing packets:
+{Retry Packet}: f000000001081d5b0380bd0c3907088c8c34c74384628a4070a39fdececa4548d81f4b4fc0c1405be2d69fb11b7bf5b
+
+Line 7: Short Header Packet
+
+Line 8: Short Header Packet
+
+Line 9: Short Header Packet
+
+Line 10: Short Header Packet

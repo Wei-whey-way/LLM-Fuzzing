@@ -1,0 +1,6 @@
+{'Line 1': 'c1', 'Line 3': 'e4', 'Line 4': 'e0', 'Line 5': 'e9', 'Line 7': '61', 'Line 8': '7d', 'Line 9': 'e3', 'Line 10': '7a'}
+Unique packet types (GT): 3
+Packet types: dict_keys(['Initial Packet', 'Handshake Packet', '1-RTT Packet'])
+Number of unique packet types: 3
+Valid: []
+Hallucinated: []

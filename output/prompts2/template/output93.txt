@@ -1,0 +1,17 @@
+```
+{Line 1}: c9 Packet
+
+Missing packets:
+Handshake: ea00000001081d5b0380bd0c39070884cc3334e4819491401a3e5d34476abad4504f1d47b139acd988cd3897fdea11b6f6162295a5ab8714d11dab8d9c3d7eb
+
+{Line 2}: c7 Packet
+{Line 3}: c9 Packet
+
+Missing packets:
+Initial: ca00000001081d5b0380bd0c39070884cc3334e481949140193d3ad0051334011c7390f044e61017b9ba6ed42dd3b6004d7d91b19fe34d
+
+{Line 4}: e6 Packet
+{Line 5}: eb Packet
+{Line 6}: ec Packet
+{Line 7}: e4 Packet
+```

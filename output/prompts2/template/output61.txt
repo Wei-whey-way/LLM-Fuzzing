@@ -1,0 +1,7 @@
+```
+{Line 1}: Initial Packet
+{Line 2}: Handshake Packet
+
+Missing packets:
+0-RTT Packet: f000000001081d5b0380bd0c3907088e934ae941f66fe300c4e854736c00000b0bdec0a3d8f51da246958ac. {Line 3}: {Packet header of the line}
+```

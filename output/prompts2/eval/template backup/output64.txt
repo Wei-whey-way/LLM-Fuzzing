@@ -1,0 +1,7 @@
+{'Line 1': '01081f6256892c70c885086642696aee51fffd00', 'Line 6': '1d03539f6021ece5a3cc473ed26a963bb129a60dd17f361da165.'}
+Unique packet types (GT): 3
+Packet types: dict_keys(['Initial Packet', 'Handshake Packet', '1-RTT Packet'])
+Number of unique packet types: 3
+Valid: []
+Hallucinated: ['StreamDataPacket5']
+Order: Hallucination

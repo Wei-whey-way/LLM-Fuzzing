@@ -1,0 +1,3 @@
+Initial: 45000000010800000000
+
+Final Packet Type: 02

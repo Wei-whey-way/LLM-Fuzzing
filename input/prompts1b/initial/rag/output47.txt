@@ -1,0 +1,88 @@
+Parsing the given hex string and mapping it to the specified Initial Packet format according to RFC 9000:
+
+Hex Stream:
+```
+ca0000000108347c7b1f4a8345d3081d5b0380bd0c39070040981fcc2f12132d87f57c5ba722ecf2a6ada4f30d08dada916ac7cb7829ae2aa82752ef00b980c5d4bee0f4317a5827c11e3dd2fb15722ec82dc59d5d7630d5835add21ede2370ba8727d4e7ee6e8cc52b200fbce98a17fcb4b17cac22e5f06452fefa04c8c49016a059e9bffd0ec4620ac5eff96a7238cf13d278c08e9c8dd7078607d01644c1861a9452e2f62b1a3937408e8af5ef9ed6de89
+```
+
+### Extraction and mapping to Initial Packet fields:
+
+1. **Header Form (1)**:
+    - **Bit** (starting from 1): "1"
+    - **Value**: `0x1`
+   
+2. **Fixed Bit (1)**:
+    - **Bit** (immediately after Header Form, 2nd bit): "1"
+    - **Value**: `0x1`
+   
+3. **Long Packet Type (2)**:
+    - **Bits** (2 bits 3rd and 4th): "00"
+    - **Value**: `0x0`
+   
+4. **Reserved Bits (2)**:
+    - **Bits** (5th and 6th): "10"
+    - **Value**: `0x2`
+
+5. **Packet Number Length (2)**:
+    - **Bits** (7th and 8th): "10"
+    - **Value**: `0x2`
+   
+6. **Version (32)**:
+    - **Value**: first 4 bytes (following 1 byte, i.e., byte positions 2 to 5): `ca000000`
+    - Hexadecimal: `0x01000001` 
+
+7. **Destination Connection ID Length (8)**:
+    - **Value**: next 1 byte (6th byte): `08`
+    - Length: 8 (as a decimal)
+   
+8. **Destination Connection ID (0..160)**:
+    - **Value**: next 8 bytes (`scalar of Destination Connection ID Length`): `347c7b1f4a8345d3`
+
+9. **Source Connection ID Length (8)**:
+    - **Value**: next 1 byte: `08`
+    - Length: 8 (as a decimal)
+    
+10. **Source Connection ID (0..160)**:
+    - **Value**: next 8 bytes (`scalar of Source Connection ID Length`): `081d5b0380bd0c39`
+
+11. **Token Length (i)**:
+    - **Value**: next 1 byte encoded (`0--0x3f` implies i): `07` 
+    - Length: 7 (as a decimal)
+
+12. **Token (..)**:
+    - **Value**: next 7 bytes (because the Token Length is 7): `0040981fcc2f12`
+
+13. **Length (i)**:
+    - **Value**: next 1 byte encoded (assuming `i` representation): `13`
+    - Length: 19 (decimal value)
+   
+14. **Packet Number (8..32)**:
+    - **Value**: based on earlier definition (`Packet Number Length are field values read this number of bytes, 2 bytes`): `32d9`
+   
+15. **Packet Payload (8..)**
+    - **Value**: remaining bytes starting from next offset: `2d87f57c5ba722ecf2a6ada4f30d08dada916ac7cb7829ae2aa82752ef00b980c5d4bee0f4317a5827c11e3dd2fb15722ec82dc59d5d7630d5835add21ede2370ba8727d4e7ee6e8cc52b200fbce98a17fcb4b17cac22e5f06452fefa04c8c49016a059e9bffd0ec4620ac5eff96a7238cf13d278c08e9c8dd7078607d01644c1861a9452e2f62b1a3937408e8af5ef9ed6de8`
+
+
+### Resulting Initial Packet JSON:
+
+```json
+{
+  "Initial Packet": {
+    "Header Form (1)": "0x1",
+    "Fixed Bit (1)": "0x1",
+    "Long Packet Type (2)": "0x0",
+    "Reserved Bits (2)": "0x2",
+    "Packet Number Length (2)": "0x2",
+    "Version (32)": "0xca000000",
+    "Destination Connection ID Length (8)": "0x08",
+    "Destination Connection ID (0..160)": "347c7b1f4a8345d3",
+    "Source Connection ID Length (8)": "0x08",
+    "Source Connection ID (0..160)": "081d5b0380bd0c39",
+    "Token Length (i)": "07",
+    "Token (..)": "0040981fcc2f12",
+    "Length (i)": "13",
+    "Packet Number (8..32)": "32d9",
+    "Packet Payload (8..)": "2d87f57c5ba722ecf2a6ada4f30d08dada916ac7cb7829ae2aa82752ef00b980c5d4bee0f4317a5827c11e3dd2fb15722ec82dc59d5d7630d5835add21ede2370ba8727d4e7ee6e8cc52b200fbce98a17fcb4b17cac22e5f06452fefa04c8c49016a059e9bffd0ec4620ac5eff96a7238cf13d278c08e9c8dd7078607d01644c1861a9452e2f62b1a3937408e8af5ef9ed6de8"
+  }
+}
+```

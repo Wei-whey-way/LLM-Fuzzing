@@ -1,0 +1,37 @@
+To correctly parse the given hex string and map its values to the respective fields in the QUIC Initial Packet as per RFC 9000, we follow these steps:
+
+1. **Convert the Hex String to Bytes:**
+
+   ```
+   Bytestream: c700000001085066e47cedf6612a08db0f1772e8acb0050044e6eb454cd0a9cc5f8f2239a50ecdf5ff03145293463f8b7a5772cea8b5450bec9589fdd4c2e40aecb617ec902e8b03e8c79f0bf407c2d9a703df07364e8dc21d9f48ea62c300e0a7821e043cc9769dd6a78a02ca257101d82b50a1840d3d771e9007070b9464b76178876f88d7b0799b53b791b062935ee398da49dc6b4db91d26320de25c24b01f3651bc84339b58352932e1153106645332ff7a84a5217c95638226160fc0b35031f1366922bb62b80006903b3d4426667c3576b228a77c155b74ea8aaa48834afda2c86910a0d69f319125ea5223320db9fb4bc77c755e6fdcafaa728eb07dbe254378e9dc10f5e8def52bc0bbafb5b860439c313b78a16f49602331170800a48461f917bcf8e4ab483f92e3f998ec8df142e760067b5a02f545f1451ba06bcd147cc998d8a636d5ee6dc241bc772d3b76bd97d7ae815ec203c5dc64c6b8127af89820214bf2c2f0013cc936d7615224523c53b7b0b637e465508d3032d28d615b059f2aad4898fd4af5b036dc063ca2167226197156339eb02b363a8d1da9910dbf43bae46a9719e56ffb51203f63237eb96b85224547cfd321877cbe05e70314e332bf846f8005049b2b5755a8525072aa9976c8a7a7df2043b421e47c413f9e8fae13fc8e1906417e5bd89223b7d84c2ba09772ca8daa4e154e9aeb4f9d7d1e87e175e29961550fb160585486cc4dc23960b2c4171c927f1b15c487237874487086c2a0ded66ccea52b3355b9ded874feace4122f96c1274d6da62b637c251496bacbdbf23ae7ea02080b1bb0beb4e85468594d4d6572356586d65ddf7fd40c4d7aa8c40051992eaf3b4daa28c904333a5f4935e079b1b6e61fbb78b9767bd5b36a8d411cd03d5c67b2fcaca31a4deaaf55967732b5a4c3d7d2e598912c8d52053233ee3dde0ec45c01212037c6bf07b371fcbbe3748422a9b1c20048269d61b4229d4edf4e51b725021e7f64fad6ee7e0d31f9f8996de869ab2d9cc02634f3f74657cbc4407752611461b2d2ea6d66e76b3bf36fc7043dbe01efeaef21a3b420da660799bd1ee01c3716e952765115571f73f151b34600c4575cff79ace0e4f7f2694c2befd8e710a40c340cba051ad42d838b8591f8ed909f4004ab5d97f4f416ea6883b34041884ae5cefbc1d15983561bf108cc7dfc63e9d8164de24ae20a31f125a09935659623cb93f84c24576d44d8c7c4de8c7424c1ddae32d96f39e05f0d6776d89fe06834d27ab177fe63b277620a3cdf9923de23d8eb24e4fb9d1454105519540a254dd2e1746faa0ebc74cb8acf99e05846678a23b634aa6a02c420bcaa66cacf27410f9c2f27fb871859bf417beca0a87784da0759e847800777c4a4c02887e7ff8d768cc57c3b3ffd892b1b9624e18ea8c93c536fb6ff8baa66b24a0ef5fa079d4125c713e4b4f067b3df762b2ecdc99f625f94edf7855332daeceafa270c2c0cebb8f17391b9d73bba89443fd7cfa0338ff6d9dbd86c4071908a3e592248704b4c51be1d4a5848ef3e61789cae33971e68e20f575335ab3ed964f44a371890d887fe0eb86d603bd0c441cba63631a6b00d6c2a297cc0fe5f254d309259697fbeb833ac5369ee41297498672241a5ced65bdeb6dd93d2d39fae8dde1096926763229fc9c337eaa19e1c6df261c2e60bdd3770d5d495469a493428c6a6388edec3d13d95052ca1a28b580903f8513492c02224f3becdfa5f7e209c916d393e16400582c2328901a1b716748c6b8043a380f955cdc296de
+   ```
+
+2. **Extract the Fields:**
+
+   Given the structure of the Initial Packet, parse the fields as follows:
+
+   - **Header Form (1):** `c7` → `0b11000111` → `Header Form = 1`
+   - **Fixed Bit (1):** The form contains 11 bits for header form and packet type:
+     ```c7 → 0b1100 0111``` Fix bit = `1`
+   - **Long Packet Type (2):** `0` (parsed from `1100`)
+   - **Reserved Bits (2):** `11` 
+   - **Packet Number Length (2):** `01`
+   - **Version (32):** `00000001` which is `1` or `0x1`
+   - **Destination Connection ID Length (8):** `08` which is `8` bytes
+   - **Destination Connection ID (0..160):** `5066e47cedf6612a` (8 bytes)
+   - **Source Connection ID Length (8):** `08` which is `8` bytes
+   - **Source Connection ID (0..160):** `db0f1772e8acb005` (8 bytes)
+   - **Token Length (i):** The next 2 bytes represent the length of the token which is `0044` (which is `0x44` or 68 bytes)
+   - **Token (..):** `e6eb454cd0a9cc5f8f2239a50ecdf5ff03145293463f8b7a5772cea8b5450bec9589fdd4c`
+   - **Length (i):** The next bytes were `0050` (which is `0x50` or `80` bytes)
+   - **Packet Number (8..32):**  The packet number is of 4 bytes `bf407c2d` (considering `Packet Number Length` was `01b01`representing 4 bytes)
+   - **Packet Payload (8..):** Remaining payload begins with `9a703df07364...`
+   
+Putting all the values together in the Initial Packet format we get:
+
+```json
+{
+  "Initial Packet": {
+    "Header Form (1)": "0x1",
+    "Fixed Bit (1)": "0x1",
+   

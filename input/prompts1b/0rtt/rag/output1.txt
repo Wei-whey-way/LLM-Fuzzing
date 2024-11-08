@@ -1,0 +1,13 @@
+- Long Header Form: 0xd0
+- Fixed Bit: 1
+- Packet Type: 0b0000 (Initial Packet)
+- Unused: 0b0
+- Packet Number Length: 0b01 (1 byte)
+- Destination Connection ID Length: 8
+- Destination Connection ID: 0303030303030303
+- Source Connection ID Length: 8
+- Source Connection ID: 2ccdb481667d2d76
+- Token Length: 0
+- Length: 15
+- Packet Number: 0x01
+- Protected Payload: 5afde808114d24b3ec291a111fa7284d4334ec33ae3

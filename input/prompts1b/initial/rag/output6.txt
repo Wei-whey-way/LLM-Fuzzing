@@ -1,0 +1,70 @@
+To properly place all the values from the bytestream into the Initial Packet structure, we need to parse the bytestream according to the QUIC Initial Packet format. Here's the step-by-step breakdown:
+
+1. **Header Form (1 bit)**: 
+   - From the bytestream, the first byte is `c8`.
+   - `c8` in binary is `11001000`.
+   - The first bit (`1`) indicates that it is a Long Header packet, specifically an Initial Packet.
+   
+2. **Fixed Bit (1 bit)**:
+   - The second bit is `1`, which is consistent with the requirement.
+   
+3. **Long Packet Type (2 bits)**:
+   - The next two bits are `00`, indicating it is an Initial Packet (as per the QUIC standard).
+  
+4. **Reserved Bits (2 bits)**:
+   - The next two bits are `00`.
+
+5. **Packet Number Length (2 bits)**:
+   - The final two bits of the first byte are `10` which indicates a Packet Number Length of 2 bytes.
+
+6. **Version (32 bits)**:
+   - The next four bytes after the header byte are `00 00 00 01`.
+
+7. **Destination Connection ID Length (8 bits)**:
+   - The next byte is `08`, indicating the length of the Destination Connection ID is 8 bytes.
+
+8. **Destination Connection ID (0..160 bits)**:
+   - The following 8 bytes are `1d 5b 03 80 bd 0c 39 07`.
+
+9. **Source Connection ID Length (8 bits)**:
+   - The next byte is `08`, indicating the length for the Source Connection ID is 8 bytes as well.
+
+10. **Source Connection ID (0..160 bits)**:
+    - The next 8 bytes are `08 a5 c5 2d 7c f9 d0 8f`.
+
+11. **Token Length (i)**:
+    - The next byte is `7b`, indicating a length of 123 bytes.
+
+12. **Token (..)**:
+    - The next 123 bytes starting from `0044e6eba63a0a19ee0c...` (123 bytes worth).
+
+13. **Length (i)**:
+    - Immediately following the token would be the Length field. In this example, it is `f0`, indicating a length.
+  
+14. **Packet Number (8..32 bits)**:
+    - Given the Packet Number Length is 2 bytes (`0021`). 
+
+15. **Packet Payload (8..)**:
+    - The remaining portion is `14 95 45 61 20 b5...`.
+
+Based on this explanation, the values placed correctly into the Initial Packet look like this:
+
+```json
+"Initial Packet": {
+    "Header Form (1)": "0x1",
+    "Fixed Bit (1)": "0x1",
+    "Long Packet Type (2)": "0x0",
+    "Reserved Bits (2)": "0x0",
+    "Packet Number Length (2)": "0x2",
+    "Version (32)": "0x00000001",
+    "Destination Connection ID Length (8)": "0x08",
+    "Destination Connection ID (0..160)": "0x1d5b0380bd0c3907",
+    "Source Connection ID Length (8)": "0x08",
+    "Source Connection ID (0..160)": "0x08a5c52d7cf9d08f",
+    "Token Length (i)": "0x7b",
+    "Token (..)":"0x0044e6eba63a0a19ee0c11495456120b5fd9dd9e9f39f1e837ec21671116152ea8f08ac0802b1ee2aafd9afe892b17dfe1394a28ccd06c3b090d61699af05bbb796256c4ec25d78bb4357d23d7972ee33587eb9c576d220246",
+    "Length (i)": "0xf0",
+    "Packet Number (8..32)": "0x0021",
+    "Packet Payload (8..)": "0x14 95 45 61 20 b5... (remaining payload data here)"
+}
+```

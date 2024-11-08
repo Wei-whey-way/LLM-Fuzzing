@@ -1,0 +1,76 @@
+Let's decode the provided hex string and place the values correctly into the Initial Packet as per the RFC 9000 QUIC protocol:
+
+Bytestream: `c100000001089dc4a59fc1bc18bf081d5b0380bd0c3907004098659632622cdc5aedf5c8c969db3a9539efab62f6a042e81dc8a50c4c90f175eaedbd8f1f6f2f43b116e1e25b8355db951fba6faf057827fb8accfe3c46d087fb13dc5a83f64b9d02a205485330ad5a708cefe3bcff6a4812744ef95f66a9137352d987ddbdbc6d4885fd0d5f148e6cd5e55027a38ded9595bb3bea3a2875852909cfa4c3f3e3976cfc62ffc055ba346838e71b6d5832828b`
+
+### Step-by-Step Decoding
+1. **Header Form and Initial Bits**:
+   - Byte: `c1`
+   - Binary: `11000001`
+   - `Header Form (1)` : `1` (Long Header)
+   - `Fixed Bit (1)` : `1`
+   - `Long Packet Type (2)` : `00` (Initial)
+   - `Reserved Bits (2)` : `00`
+   - `Packet Number Length (2)` : `01` (2 bytes)
+
+2. **Version**:
+   - Next 4 bytes: `00000001`
+   - `Version (32)` : `0x00000001`
+
+3. **Destination Connection ID Length (8)**:
+   - Next byte: `08`
+   - `Destination Connection ID Length (8)` : `8` (8 bytes)
+   
+4. **Destination Connection ID (0..160)**:
+   - Next 8 bytes: `9dc4a59fc1bc18bf`
+   - `Destination Connection ID (0..160)` : `9dc4a59fc1bc18bf`
+
+5. **Source Connection ID Length (8)**:
+   - Next byte: `08`
+   - `Source Connection ID Length (8)` : `8` (8 bytes)
+
+6. **Source Connection ID (0..160)**:
+   - Next 8 bytes: `081d5b0380bd0c39`
+   - `Source Connection ID (0..160)` : `081d5b0380bd0c39`
+
+7. **Token Length (i)**:
+   - Next byte: `07`
+   - `Token Length (i)` : `7` (7 bytes)
+
+8. **Token (..)**:
+   - Next 7 bytes: `00409865963262`
+   - `Token (..)` : `00409865963262`
+
+9. **Length (i)**:
+   - Next byte: `2c`
+   - `Length (i)` : `44`
+
+10. **Packet Number (8..32)**:
+    - Next 2 bytes: `dc5a`
+    - `Packet Number (8..32)` : `dc5a`
+
+11. **Packet Payload (8..)**:
+    - Remaining bytes: `ed...`
+    - `Packet Payload (8..)` : `edf5c8c969db3a9539efab62f6a042e81dc8a50c4c90f175eaedbd8f1f6f2f43b116e1e25b8355db951fba6faf057827fb8accfe3c46d087fb13dc5a83f64b9d02a205485330ad5a708cefe3bcff6a4812744ef95f66a9137352d987ddbdbc6d4885fd0d5f148e6cd5e55027a38ded9595bb3bea3a2875852909cfa4c3f3e3976cfc62ffc055ba346838e71b6d5832828b`
+
+### The Completed Initial Packet
+```json
+{
+  "Initial Packet": {
+    "Header Form (1)": "0x1",
+    "Fixed Bit (1)": "0x1",
+    "Long Packet Type (2)": "0x0",
+    "Reserved Bits (2)": "0x0",
+    "Packet Number Length (2)": "0x1",
+    "Version (32)": "0x00000001",
+    "Destination Connection ID Length (8)": "0x8",
+    "Destination Connection ID (0..160)": "9dc4a59fc1bc18bf",
+    "Source Connection ID Length (8)": "0x8",
+    "Source Connection ID (0..160)": "081d5b0380bd0c39",
+    "Token Length (i)": "0x7",
+    "Token (..)": "00409865963262",
+    "Length (i)": "0x2c",
+    "Packet Number (8..32)": "0xdc5a",
+    "Packet Payload (8..)": "edf5c8c969db3a9539efab62f6a042e81dc8a50c4c90f175eaedbd8f1f6f2f43b116e1e25b8355db951fba6faf057827fb8accfe3c46d087fb13dc5a83f64b9d02a205485330ad5a708cefe3bcff6a4812744ef95f66a9137352d987ddbdbc6d4885fd0d5f148e6cd5e55027a38ded9595bb3bea3a2875852909cfa4c3f3e3976cfc62ffc055ba346838e71b6d5832828b"
+  }
+}
+```

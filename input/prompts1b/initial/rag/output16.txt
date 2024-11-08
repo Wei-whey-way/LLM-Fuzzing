@@ -1,0 +1,25 @@
+Here's the breakdown of the values for the Initial Packet from the provided byte stream:
+
+1. **Header Form (1 bit)**:  `1` (`0x1`, 1 bit)
+2. **Fixed Bit (1 bit)**: `1` (`0x1`, 1 bit)
+3. **Long Packet Type (2 bits)**: `0` (`0x0`, 2 bits, indicating Initial Packet)
+4. **Reserved Bits (2 bits)**: `3` (`0x3`, 2 bits)
+5. **Packet Number Length (2 bits)**: `0` (`0x0`, 2 bits)
+
+From here onward:
+6. **Version (32 bits)**: `0x00000001`
+7. **Destination Connection ID Length (8 bits)**: `0x08` (8 bytes)
+8. **Destination Connection ID (8 * 8 bits)**: `0xf521a1fcab84c6a608`
+9. **Source Connection ID Length (8 bits)**: `0x0e` (14 bytes)
+10. **Source Connection ID (14 * 8 bits)**: `0x2dfe628b3ad99d30044e6e251e3bcc4904383bf8`
+
+The token-related values:
+11. **Token Length (varint)**: `0x9f` (159 bytes)
+12. **Token (159 bytes)**: 
+`0x505d633bd7134dbfa757309e5a8a130715d58b17fc438122f6a1c049144bffbd05dffe8422131259733322725d615cf99dbfd4ed5213a27ac8ae6b7ca9f6f08ca962368d81541a67d01303756ea8c59c395af1087b22355e7152f0d131a15949e7b171e691324442d1991ecc0fe9515739440973577a1fc9c71a4c9c54870ef5095d96bc0c5e85268a6561c75c480705d7fbfbd3cbe9b2b13704b601c01c733862f9d0d648b25d4231c24936741df6b940a68f483f52ab215094fbe0bebfffe92c35ee6c6a25db6e65bd015a0ccbe930bdd5d6bb5f7f6735606845d7c988d3fbb07eb615bdf77c2a813500573487e9bdc46a255fb8d6398e18944987186eb999d64b0f9bc9f203484d0b93b8d94022141eb05d726de6fd4d52ef7c846686e740e63d92b4bb54c0896bcc5`
+
+Remaining fields:
+13. **Length (varint)**: `0xe535`
+14. **Packet Number (8 bits)**: `0x344`
+15. **Packet Payload (remaining bytes, 579 bytes)**:
+`0xf9d90fecd7867a1241630248b14e87263e0f4bf20af3995cf3a50dd99de14006355cf6b135e050e09bd771432762c828733d7c2ff4dc264ac7d1c690806cfbf3340b3990aea15e4fe28491a9b234386712c91225d50a83d7bc53e505ce23054a3561acb929be88ed5b1044c61db2ad3d84b5794cabb6ec1d68c5b5d7b8910ac39386ff528d67a292d12c1ba62da2245503246e9233cf9c8fac09dbc1348f335530d8d207551405c9d9887a7e82bc14b0fb23069d0bead0afa3fa80c2d9ad60d0dc76ca64577cd0d2a78eaa3e03456ce365d096c706738e6eebc500b56d6d296abccab457f04fc81253046032f2eeb28adfff8a20aeefd3b2d2d9af7b758664abec0458c22a95db8fd6b90fc7665387d81da74786a507a90f61d81de5060abda96a92de1ef37ee1d8b63e31624fdb497dd48364224f6a732444f2bb4bb597a6abb7227055059b926b1f360f2877fdaf4bff1ef57a381edb5b7c10317d4cff1681e13e2e0a8726570b36482e9b3a1e888b3b3c479efbdcabba3b5fd16908653b7079f25759a99c100c91d56f8f1aedad2fd5461bbb72c6a6b4beb19782b79eaffe58b031a`

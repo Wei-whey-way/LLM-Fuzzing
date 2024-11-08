@@ -1,0 +1,8 @@
+Initial Packet:
+cb00000001084f529c35e995a0f3
+
+Long Header Packet:
+e400000001084f529c35e995a0f3
+
+Short Header Packet:
+544f529c35e995a0f3

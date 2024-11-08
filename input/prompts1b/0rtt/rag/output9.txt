@@ -1,0 +1,16 @@
+```
+Initial Packet {
+  Name: 0-RTT Packet,
+  Fixed Bit: 1,
+  Long Packet Type: 011    
+  Reserved Bits: 00,
+  Packet Number Length: 3,
+  Version: 0x00000001,
+  Destination Connection ID Length: 8,
+  Destination Connection ID: 0x0303030303030303,
+  Source Connection ID Length: 8,
+  Source Connection ID: 0xc09abc1fc1609d56,
+  Packet Number: 87707be8,
+  Packet Payload: 0xde56fdf4cee65b6c6dcad
+}
+```

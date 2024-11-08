@@ -1,0 +1,14 @@
+0-RTT Packet {
+  HeaderForm: 1 
+  FixedBit: 1
+  LongPacketType: 10
+  ReservedBits: 00
+  PacketNumberLength: 1
+  Version: 00000001
+  DestinationConnectionIDLength: 8
+  DestinationConnectionID: 0303030303030303
+  SourceConnectionIDLength: 8
+  SourceConnectionID: 65d31f353fb4ea35
+  PacketNumber: 01
+  Payload: 571964d5a9f92f96e0bee7a2e0a96fc0955d3e1a1eb
+}

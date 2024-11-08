@@ -1,0 +1,14 @@
+```
+Line 1: Initial, 0xc1
+Line 2: Handshake, 0xcb
+Line 3: Handshake, 0xcd
+Missing packets:
+Retry: ef00000001081d5b0380bd0c390708f5a246a391705fdd401ad4b24a724001682f9a55ec143178269b20700abdca94b3a. Line 4: Retry, 0xef
+Line 5: Short Header, 0xe4
+Line 6: Short Header, 0xe6
+Missing packets:
+0-RTT: gg00000001081d5b0380bd0c390708f5a246a391705fdd40310194f748ce044e74bb9763b78f407204df3f3dd16b3d047ffa. Line 7: 0-RTT, 0x7f
+Line 8: Short Header, 0x6c
+Line 9: Short Header, 0x6c
+Line 10: Short Header, 0x5b
+```

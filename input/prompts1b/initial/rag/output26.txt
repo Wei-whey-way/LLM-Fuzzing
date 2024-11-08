@@ -1,0 +1,57 @@
+To parse the given bytestream into the values specified by the Initial Packet format for the RFC 9000 QUIC protocol, follow the structure of the Initial Packet as defined in the protocol documentation. Here's how to do that:
+
+1. Start by breaking down the bytestream:
+   ```
+   c5 00 00 00 01 08 bd ec 4b c5 ab 61 62 de 08 1d 5b 03 80 bd 0c 39 07 00 40 98 1c 0c 35 10 40 1a 2c 98 74 a5 f8 fd 5a 0c b8 12 89 b8 4b 28 e3 a8 62 08 f7 61 d5 23 e2 c5 36 9a 2e 11 a6 26 0c 09 10 46 d3 76 8f 28 36 c3 f9 1f 92 8e 1a 59 ff 64 b7 d4 e4 7d 04 44 75 3d 80 2e c8 31 59 c0 cd dc 53 9e 6c c4 78 f1 6d 5a 98 12 34 00 1b 35 eb 47 07 e4 ca 3f 3a 68 c2 e8 a5 00 b2 8c a7 fb 95 fb cd 19 78 20 57 a3 c2 c9 d3 4d 19 e1 48 e0 07 c8 ae 29 80 0f 7f 56 bb c3 f7 e3 c7 e2 4a 5f 86 98 70 6f 4d f6 c6 fa 9b be 2a 69 bb ed c3 30 f0 e1 8a f5
+   ```
+
+2. Now map each part of the bytestream to the relevant field in the Initial Packet format:
+
+   - **Header Form (1 bit)**: `c5` (binary: `11000101`), 1st bit is `1`
+   - **Fixed Bit (1 bit)**: 2nd bit is `1`
+   - **Long Packet Type (2 bits)**: 3rd and 4th bits are `00` (Initial packet)
+   - **Reserved Bits (2 bits)**: 5th and 6th bits are `00`
+   - **Packet Number Length (2 bits)**: 7th and 8th bits are `01` (1 byte of packet number)
+   
+   Combine above to validate `c5` as:
+   ```
+   11000101
+   | |||||+--- Packet Number Length: 01
+   | +++------ Reserved bits: 00
+   +----------- Header Form, Fixed Bit, Long Packet Type: 110 (Initial Packet)
+   ```
+
+   - **Version (32 bits)**: `00 00 00 01`
+   - **Destination Connection ID Length (8 bits)**: `08`
+   - **Destination Connection ID (0..160 bits)**: `bd ec 4b c5 ab 61 62 de` (64 bits or 8 bytes)
+   - **Source Connection ID Length (8 bits)**: `08`
+   - **Source Connection ID (0..160 bits)**: `1d 5b 03 80 bd 0c 39 07` (64 bits or 8 bytes)
+   - **Token Length (i)**: `00` (implies no token)
+   - **Token (..)**: No token present
+   - **Length (i)**: `40 98` (AFPL encoded, collapse to `98` simplify representation)
+   - **Packet Number (8..32 bits)**: Taking from the byte where length collapsed packet number follows `1c` (8 bits or 1 byte)
+   - **Packet Payload (8..)**: All remaining bytestream data from `bd 0c 35 10 40 1a 2c ...`
+
+Summarizing all into Initial packet:
+
+```json
+{
+  "Initial Packet": {
+    "Header Form (1)": "0x1",
+    "Fixed Bit (1)": "0x1",
+    "Long Packet Type (2)": "0x0",
+    "Reserved Bits (2)": "0x0",
+    "Packet Number Length (2)": "0x1",
+    "Version (32)": "0x00000001",
+    "Destination Connection ID Length (8)": "0x08",
+    "Destination Connection ID (0..160)": "0xbdec4bc5ab6162de",
+    "Source Connection ID Length (8)": "0x08",
+    "Source Connection ID (0..160)": "0x1d5b0380bd0c3907",
+    "Token Length (i)": "0x00",
+    "Token (..)": "",
+    "Length (i)": "0x4098",
+    "Packet Number (8..32)": "0x1c",
+    "Packet Payload (8..)": "0xbd0c3510401a2c9874a5f8fd5a0cb81289b84b28e3a86208f761d523e2c5369a2e11a6260c091046d3768f2836c3f91f928e1a59ff64b7d4e47d0444753d802ec83159c0cddc539e6cc478f16d5a981234001b35eb4707e4ca3f3a68c2e8a500b28ca7fb95fbcd19782057a3c2c9d34d19e148e007c8ae29800f7f56bbc3f7e3c7e24a5f8698706f4df6c6fa9bbe2a69bbedc330f0e18af5"
+  }
+}
+```

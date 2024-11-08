@@ -1,0 +1,15 @@
+```
+{Line 1}: Initial Packet
+
+{Line 2}: Handshake Packet
+
+Missing packets:
+Zero-Length Packet: fa00000001081d5b0380bd0c3907085b89a130ff6affc0401a Proper header for Zero-Length Packet
+{Line 3}: Zero-Length Packet
+
+{Line 4}: 1-RTT Packet
+
+{Line 5}: 0-RTT Packet
+
+{Line 6}: Retry Packet
+```

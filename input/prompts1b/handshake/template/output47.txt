@@ -1,0 +1,11 @@
+"Header Form": "0x1",
+"Fixed Bit": "0x1",
+"Long Packet Type": "0x0",
+"Reserved Bits": "00",
+"Packet Number Length": "00",
+"Version": "00000001",
+"Destination Connection ID Length": "08",
+"Destination Connection ID": "db0f1772e8acb005",
+"Length": "81",
+"Packet Number": "d5b038",
+"Packet Payload": "0bd0c390740fbcae0c9c95f1c3ba8a3e3f611f01aeaadc292582444f62b0646b2ffaa22ae28fa87f9ca09e2499396777590c992044e10317da030d141e177ef20ccb877bd6ac09af654ade2f6a305149dc6574f3542b2a169d5de53dc676d2bb6cc2b30314d2540598225eed5d7d653185798ce80fda26f9b0cb9fd677f880faa12d55a112bda5f62acf93ef5113055acc6175c715f938f8302406fbecc6ed5d9e3daf4a3b4b2732934e25def89284695867b9da148be2c01468740b77d36d78be863a70eb4456ac504599829274807936d20f275bc3a19ec7f36a35cc87f06f349d2e9f6533aca559a7803dc5d2fb05c5aa766595b64fd2be2a38236f9be0ba2f3"

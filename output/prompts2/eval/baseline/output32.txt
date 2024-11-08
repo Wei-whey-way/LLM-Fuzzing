@@ -1,0 +1,6 @@
+{'Line 1': 'c0000000010871ecf4c63508412c0807', 'Line 3': 'e800000001081d5b0380bd0c39070807', 'Line 4': 'ea00000001081d5b0380bd0c39070807', 'Line 5': 'e900000001081d5b0380bd0c39070807', 'Line 6': '771d5b0380bd0c3907d6c5ba1a6021ef7ba3ccf833831ee19f77c521c603339bada490', 'Line 7': '701d5b0380bd0c390719428ad9c5983d6e6d7ea324b064ab0bea8e25be2574bad8f9', 'Line 8': '7d1d5b0380bd0c39077e4ad45528698738e3fa5f5387f49245b454d974de8e5ee967', 'Line 9': 'eb00000001081d5b0380bd0c39070807', 'Line 10': '7a1d5b0380bd0c390719dd14f6c0ba569599a41b8cbe3cf0883a502d4c1b'}
+Unique packet types (GT): 3
+Packet types: dict_keys(['Initial Packet', 'Handshake Packet', '1-RTT Packet'])
+Number of unique packet types: 3
+Valid: []
+Hallucinated: ['bytestreamformissingpacket']

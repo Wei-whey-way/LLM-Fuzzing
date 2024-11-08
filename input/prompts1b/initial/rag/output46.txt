@@ -1,0 +1,39 @@
+Based on the bytestream provided and the QUIC packet structure outlined in RFC 9000, here’s how each value slot in the "Initial Packet" structure gets filled:
+
+### Bytestream Segmentation and Value Extraction:
+- **Bytestream**: `c100000001081445801be4ab059508347c7b1f4a8345d30044... `
+
+### Initial Packet Fields:
+1. **Header Form (1 bit)**: `c1` - First bit (`1` indicating long header)
+2. **Fixed Bit (1 bit)**: `1` - Second bit (`1`)
+3. **Long Packet Type (2 bits)**: `00` - Next 2 bits (`00` for Initial)
+4. **Reserved Bits (2 bits)**: `00` - Next 2 bits (Assumption)
+5. **Packet Number Length (2 bits)**: `01` - Last 2 bits of `c1` (`01` for length of 1 byte)
+
+### Continue Parsing:
+- **Version (32 bits)**: `00000001` - Next 4 bytes
+- **Destination Connection ID Length (8 bits)**: `08` - Next byte
+- **Destination Connection ID (64 bits)**: `1445801be4ab0595083` - 8 bytes (as length specified is `08`, 64-bits)
+- **Source Connection ID Length (8 bits)**: `07` - Next byte
+- **Source Connection ID (56 bits)**: `c7b1f4a8345d3` - Next 7 bytes (as length specified is 7, 56-bits)
+- **Token Length (i)**: `00` - Next byte indicates zero-length
+
+#### Variable-Length Fields
+- **Length (i)**: `44e6` - Length encoded in variable length (assumption based on context)
+- **Packet Number (8-32 bits)**: `69` - Length indicated is 1 byte, hence next byte
+
+### Remaining Data:
+- **Packet Payload**: `9f219491b2a58814ac8c2460d702a24ead660333d16f3ede9fb93374816fb414d7fb637b2cf32afe5f157b34f950ec2b63aa4cb07b1dd11cd0d9f0bb9e4733a0decf8209bf59b04b92fa73c687389ecab5f2793f530117d47612da8d1958a9d911a01d711c3e2fd270b98f2ab7cea5d5174e794841623098f725de863aa25dc0f81943fda60435c130933d7054248d50f2efc1e9f23076e3c869b6a5bf46b40f914c7cbd89859a38770ba5f95ba2812cb047669684dad410fe5789eae017807fd4c072ac6892bc20e037a59c0164681ac8d2c5589a82e5bdaac664ec58051cac22965e4f81ec5662f40dceedd68531d30c362690e65e04915c4506c062fd2f1dcbcb6df41c6a520a2d36bfeae6d66d99d3c98fb10bc23399b62e1c7cd4895f685a828b630a35735260188e3b2603fb38cde47173a2489bbdecf5aa0f2c8d10eee7f22dbd861251467697548697184cea35e25f7838df92815dd3047e84cd0f9a4dd0d81aac1b0a1431dc61112a1e3a67f802678b92bebf91643c7d74535a958ef88795f41435849aa5d55d6b8d99474ef96c87419bf1a05310a0a424aff15b3171d484c3518e23cd44f37a142013ac34b27c8e50777308eab7682e4d4e39d8df93e9c37c6ba0d02eeb404deab4d443f769bc15da4aae45d2d5edd9fd70d253353f511b7b888d2c2901443ae73a09980dc1aa6ccac1f03229229b59fb40ac950c68de5be1849a1ffe88675fa5c372684570fd608a629a0101b8ad1f9a428b1457a83114f2250633a4633c2a887274786dffd175905106f0103051473db9c13cadddf3f9513e2fc2df4745c9ebfb8af3a961a4687d1bd45730f0ac76258e2356f569fdfa2bf194ce6bd855d0b8e8c97ccd24d7ae8ed77e085e4f07979faa3a8ee9760845a8f5490ff3f3ab6410fd42ee7db3adb6d62dab8d17c020b17e736642a7c4a48c79cd82ebcfc9331504f98249361a674b6d940f92630f03df137ece8e883ba26e25895d8aa2606d928b0f8d61e4ad8e2f739ffd9f9abfc22423b7796b8bd68688f570e0b84dcb889d076189cf34659d54c4ee14978de6ad8836ad1af97dfd9f430131b25ff286f80bf573a95d7586bd6f21928bbe9f8d5deb7b888fedd1829e73c2735c859b159000569e8b1a5ca14abf315afdefb18ab6a4e749e99f61ce3420c1e10f6c69dda11d6b716b2c969ed8a9d7f85bffbdaa824dff6f3b050c89002b5a927e728193e981a53b727c3cb362a20fb40ca8fd454530f36a2120f327126ddf767e6bdfcd8a9badc599d18ddb76d43db9723cb3d891861c4bfae6542a482493b70642e2791c23ac6435b39e37f3f40045a957b389192c46a703b28969574b17e51dd19783252c9304123aee15a336c2f072327a10ec825153e5692da857258f9f0f4363154dbbc55e0dc541d49062891bc94e2aa4bf90aa5dd026ac02c9f53d40aaf9db66814d86c7429cf7cd12ce11c41617e616b9f07e4d1c006a3ca271bcc780158f241c57cb415595992b8a01076714595403641493ad22d03e055471ea69b5af9445e1ec15c806d27f41a70e754d98b9c903a411f06ee49ab282954d0f80c21826f9fd3be60fdea55e28c84ff844e1c012695191510268d4a3ff8a41a9632bae410f748c09d8715c156255418ebac0e29fcc892def637fd45e5dcecff0673ee3a2f3546168b542e1a6cf43b55d154b52ca3c11593ddc847a16785b23aa81fb5f9f7c97964deb69f06ad9c842ff773049f197a20429249083e65ed8a836ced`
+
+### The complete Initial Packet filled values:
+```json
+"Initial Packet": {
+  "Header Form (1)": "0x1", 
+  "Fixed Bit (1)": "0x1", 
+  "Long Packet Type (2)": "0x0", 
+  "Reserved Bits (2)": "0x0", 
+  "Packet Number Length (2)": "0x1", 
+  "Version (32)": "0x00000001", 
+  "Destination Connection ID Length (8)": "0x08", 
+  "Destination Connection ID (0..160)": "0x1445801be4ab0595083", 
+  "Source Connection ID Length (8)": "0x07",

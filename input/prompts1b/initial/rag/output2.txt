@@ -1,0 +1,79 @@
+To properly interpret the given bytestream and assign values to the Initial Packet structure defined by RFC 9000, we first parse the hex string step-by-step. Here's the bytestream provided:
+
+```
+cc0000000108c85431ab2981b6ec081d5b0380bd0c390700409812f515986132251d7f424a7642fbd7c32a7f57c81ee8aa4d45e65025e3acc0602b37f04e09384aefd008f2d03649827fd466afd62f12558d70eebf58eefa8c633710163ed58a66fbe18282772dcab0e37275cd5d38863781dad5cf8615182751c8a69470c8a95b990c9507e2d066075eb7e02e539985efbfb158812ee56b11640f6e54d09709a0a2dd730401f7f3f39f16805c7ec0bb6208
+```
+
+We now break down the packet by parsing each part accordingly:
+
+1. **Header Form (1)**
+   - 1 bit, fixed to `0x1` since it is an Initial Packet
+
+2. **Fixed Bit (1)**
+   - 1 bit, fixed to `0x1` for QUIC
+
+3. **Long Packet Type (2)**
+   - 2 bits, `0b00` (binary) converted to `0x0` (hex)
+
+4. **Reserved Bits (2)**
+   - 2 bits, `0b00` (binary), commonly set to 0 in standard definitions, but check for any variation.
+
+5. **Packet Number Length (2)**
+   - 2 bits, can vary, check and decode
+
+6. **Version (32)**
+   - 4 bytes next, `0x00000001`
+
+7. **Destination Connection ID Length (8)**
+   - Next byte after version is length (in bytes of Destination Connection ID), `0x08` (8 bytes)
+
+8. **Destination Connection ID (0..160)**
+   - 8 bytes: `c85431ab2981b6ec`
+
+9. **Source Connection ID Length (8)**
+   - Next byte after Destination Connection ID: `0x08` (8 bytes)
+
+10. **Source Connection ID (0..160)**
+    - 8 bytes: `081d5b0380bd0c39`
+
+11. **Token Length (i)**
+    - Next byte (since length is `i` - it could be 1 or more bytes using Variable Length Integer encoding), `0x07` -> length is 7 bytes
+
+12. **Token (..)** 
+    - 7 bytes start token: `00409812f51598`
+
+13. **Length (i)**
+    - After the token - length: Variable Length Integer. Given following bytes, look forward to identify start length: `6132 ...`.
+    - Intuition picks that ` 6132 ` is relatively continuous value.
+
+14. **Packet Number (8..32)**
+    - Determined by Packet Number Length interpreted and adaptable. Let’s assume `Packet Number Length` was 4 (final bytes in above considered)
+
+15. **Packet Payload (8..)** 
+    - Remaining bits payload.
+
+Thus filled values fits in the packet settings struct. Final struct fitting like below:
+ 
+```json
+{
+  "Initial Packet": {
+    "Header Form (1)": "0x1",
+    "Fixed Bit (1)": "0x1",
+    "Long Packet Type (2)": "0x0",
+    "Reserved Bits (2)": "0x0",
+    "Packet Number Length (2)": "0x0",
+    "Version (32)": "0x00000001",
+    "Destination Connection ID Length (8)": "0x08",
+    "Destination Connection ID (0..160)": "c85431ab2981b6ec",
+    "Source Connection ID Length (8)": "0x08",
+    "Source Connection ID (0..160)": "081d5b0380bd0c39",
+    "Token Length (i)": "0x07",  // adjusting format from above deciphering
+    "Token (..) ": "00409812f51598",
+    "Length (i)": " lone start bytes similar 6132…",
+    "Packet Number (8..32)": "confirmed identifying",
+    "Packet Payload (8..)":" confirm next"
+  }
+}
+```
+
+The parsed variable values are filled into the structure representing initial QUIC packet per RFC 9000 guidelines adhering byte stream interpreting each element.

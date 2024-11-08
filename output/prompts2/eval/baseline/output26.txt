@@ -1,0 +1,6 @@
+{'Line 1': 'c6', 'Line 2': 'c2', 'Line 4': 'e4', 'Line 5': 'e9'}
+Unique packet types (GT): 3
+Packet types: dict_keys(['Initial Packet', 'Handshake Packet', '1-RTT Packet'])
+Number of unique packet types: 3
+Valid: []
+Hallucinated: ['621d5b0380bd0c39075da9878e6021ee62a3cc08c7929848e0c5ed6c7ec2fa33c97c9d', '661d5b0380bd0c3907468372e4c5983a6e6daa1156e48710ccbba4dd4b50ab5a392b', '7a1d5b0380bd0c3907514f966f5da4caa45b6c67d30ecf006edc1505f6a3a8ed96965da3d67c4b2f3c173c712a45a971c04d2cdfd7a71bf7daa353b07ec40d9dda0f2b5c4b86ba4a6f5ccbd09686706b1acb385b49412813d7049be17ffef033f4385198a7a882578cd1300339a8e94a046ee9df2f2684e9b6fb9fc1029cbe809efc78bc9319fa5219c30e64ade88dc9b81aa0a52e00f2c43c85e345550ecb44c17d10ee3e61dbd5d7d54fe669d399d61e70a0ea8f9213f036c26b9e369fddd986ab47e36f70e59f5a25484efb94d5560549b7e322ee228092fdbbb5fefad76bd2']

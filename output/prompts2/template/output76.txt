@@ -1,0 +1,9 @@
+```
+{Line 1}: c6000000
+{Line 2}: cd000000
+Missing packets:
+Handshake packet: cf00000001081d5b0380bd0c3907086b933e72560e0a734019a1fcd7469f0b2c4e09d4ce92cf4aa1efdb5808f70fa9ea0d. {Line 3}: ea000000
+{Line 4}: ef000000
+{Line 5}: e6000000
+{Line 6}: e8000000
+```

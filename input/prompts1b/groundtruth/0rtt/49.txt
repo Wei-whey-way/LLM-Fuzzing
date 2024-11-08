@@ -1,0 +1,13 @@
+Header Form (1): 0x1
+Fixed Bit (1): 0x1
+Long Packet Type (2): 0x01
+Reserved Bits (2): 0x10
+Packet Number Length (2): 0x00
+Version (32): 0x00000001
+Destintion Connection ID Length (8): 0x08
+Destination Connection ID (0..160): 0x0303030303030303
+Source Connection ID Length (8): 0x08
+Source Connection ID (0..160): 0x721e1f80eda6eb42
+Length (i): 0x4015
+Packet Number (8..32): 0x3f68b8fb
+Packet Payload (8..): 0x917687b22f24acb730c225f53087cbff5c

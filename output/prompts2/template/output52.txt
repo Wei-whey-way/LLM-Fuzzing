@@ -1,0 +1,12 @@
+```
+{Line 1}: 0xcf
+{Line 2}: 0xcc
+
+Missing packets:
+short header packet: cc00000001081d5b0380bd0c
+
+{Line 3}: 0xcd
+{Line 4}: 0xe0
+{Line 5}: 0xee
+{Line 6}: 0xca
+```

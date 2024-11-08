@@ -1,0 +1,39 @@
+Certainly! Below is the specified packet grammar from the RFC9000 QUIC protocol document provided in the desired format:
+
+Shot-1:
+For the QUIC protocol, the Retry Packet client request format is below. See RFC9000 for set bytes.
+
+```
+Retry Packet: {
+  Header Form (1): <Value>
+  Fixed Bit (1): <Value>
+  Long Packet Type (2): <Value>
+  Unused (4): <Value>
+  Version (32): <Value>
+  Destination Connection ID Length (8): <Value>
+  Destination Connection ID (0..160): <Value>
+  Source Connection ID Length (8): <Value>
+  Source Connection ID (0..160): <Value>
+  Retry Token (..): <Value>
+  Retry Integrity Tag (128) <Value>
+}
+```
+
+Shot-2:
+```
+0-RTT Packet: {
+  Header Form (1): <Value>
+  Fixed Bit (1): <Value>
+  Long Packet Type (2): <Value>
+  Reserved Bits (2): <Value>
+  Packet Number Length (2): <Value>
+  Version (32): <Value>
+  Destination Connection ID Length (8): <Value>
+  Destination Connection ID (0..160): <Value>
+  Source Connection ID Length (8): <Value>
+  Source Connection ID (0..160): <Value>
+  Length (i): <Value>
+  Packet Number (8..32): <Value>
+  Packet Payload (8..): <Value>
+}
+```

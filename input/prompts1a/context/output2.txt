@@ -1,0 +1,91 @@
+Certainly! Please find the QUIC protocol packet grammars specified in RFC9000 below:
+
+Shot-1:
+For the QUIC protocol, the Retry Packet client request format is below. See RFC9000 for set bytes.
+```
+Retry Packet: {
+    Header Form (1): <Value>
+    Fixed Bit (1): <Value>
+    Long Packet Type (2): <Value>
+    Unused (4): <Value>
+    Version (32): <Value>
+    Destination Connection ID Length (8): <Value>
+    Destination Connection ID (0..160): <Value>
+    Source Connection ID Length (8): <Value>
+    Source Connection ID (0..160): <Value>
+    Retry Token (..): <Value>
+    Retry Integrity Tag (128) <Value>
+}
+```
+
+Shot-2:
+0-RTT Packet: {
+    Header Form (1): <Value>
+    Fixed Bit (1): <Value>
+    Long Packet Type (2): <Value>
+    Reserved Bits (2): <Value>
+    Packet Number Length (2): <Value>
+    Version (32): <Value>
+    Destination Connection ID Length (8): <Value>
+    Destination Connection ID (0..160): <Value>
+    Source Connection ID Length (8): <Value>
+    Source Connection ID (0..160): <Value>
+    Length (i): <Value>
+    Packet Number (8..32): <Value>
+    Packet Payload (8..): <Value>
+}
+```
+
+Shot-3:
+Initial Packet: {
+    Header Form (1): <Value>
+    Fixed Bit (1): <Value>
+    Long Packet Type (2): <Value>
+    Reserved Bits (2): <Value>
+    Packet Number Length (2): <Value>
+    Version (32): <Value>
+    Destination Connection ID Length (8): <Value>
+    Destination Connection ID (0..160): <Value>
+    Source Connection ID Length (8): <Value>
+    Source Connection ID (0..160): <Value>
+    Token Length (i): <Value>
+    Token (..): <Value>
+    Length (i): <Value>
+    Packet Number (8..32): <Value>
+    Packet Payload (8..): <Value>
+}
+```
+
+Shot-4:
+Handshake Packet: {
+    Header Form (1): <Value>
+    Fixed Bit (1): <Value>
+    Long Packet Type (2): <Value>
+    Reserved Bits (2): <Value>
+    Packet Number Length (2): <Value>
+    Version (32): <Value>
+    Destination Connection ID Length (8): <Value>
+    Destination Connection ID (0..160): <Value>
+    Source Connection ID Length (8): <Value>
+    Source Connection ID (0..160): <Value>
+    Length (i): <Value>
+    Packet Number (8..32): <Value>
+    Packet Payload (8..): <Value>
+}
+```
+
+Shot-5:
+Short Header Packet: {
+    Header Form (1): <Value>
+    Fixed Bit (1): <Value>
+    Spin Bit (1): <Value>
+    Reserved Bits (2): <Value>
+    Key Phase (1): <Value>
+    Packet Number Length (2): <Value>
+    Destination Connection ID (0..160): <Value>
+    Packet Number (8..32): <Value>
+    Packet Payload (8..): <Value>
+}
+```
+
+These packet formats encapsulate the structure of different types of QUIC packets as specified in RFC9000. Please refer to the RFC for detailed definitions and byte values.

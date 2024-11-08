@@ -1,0 +1,9 @@
+Line 1: Initial Packet
+Line 2: Initial Packet
+Line 3: Handshake Packet
+Line 4: Handshake Packet
+Line 5: Handshake Packet
+Line 6: Handshake Packet
+
+Missing packets:
+{0-RTT Packet}: {e10000000108InitialPacket1010101010dd632910e0a1eb6dbf129f3a7f2d4bf16cf4decb07ea5627ea729f36cca3e35baf3a2a2909ddfc9b1e4c85f67ea9b504bfd9b2367a9b53958ec85063fd093fdaeaa4b0a80d7a0c6d2a5091b2dd22c5763fb74 }. Line 3: {Packet header of the line}

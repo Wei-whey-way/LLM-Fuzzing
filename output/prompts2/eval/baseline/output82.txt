@@ -1,0 +1,6 @@
+{}
+Unique packet types (GT): 3
+Packet types: dict_keys(['Initial Packet', 'Handshake Packet', '1-RTT Packet'])
+Number of unique packet types: 3
+Valid: []
+Hallucinated: ['c7000000', 'missingbytestreamforc9', 'ca000000', 'c5000000', 'e4000000', 'e3000000', 'missingbytestreamfore2000000', 'e6000000', '631d5b03', '6a1d5b03', '6c1d5b03', '4d1d5b03']

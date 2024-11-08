@@ -1,0 +1,43 @@
+To parse the given bytestream into an Initial Packet structure as defined by RFC 9000 QUIC, we'll dissect the given hexadecimal string according to the specified attributes of the Initial Packet. Here's the step-by-step breakdown:
+
+Hex string: `cd0000000108a46fd0062872481708355a5b5e2f8243800044e68231bfe57fb8f2dde6117743fa81fb7b5b8e607ca26a20d2b6fcb49909967b2c7e57e53d75bf2f23572e0fb33e7b2fc3452fae732f2cb8d5f984f240f12905df5a99869f609a514581d52c55ee6f61f44d359f5b6b72b6915654380ece03cae58d78b7989c7643b23ff19fe208701cc062820e051bc0c152cb3b5c4b70f00be9b98ea34ecec8ed643832e66e79c947a5a6231a4419e337187a20b84880a391b5ec8c5b3e3ccb18b8799f31806f9fee6a4eb74373c0b9a5e5ad4a6c83df38bedba70db84db33445536b2b37725f4e3037c7c6c719503f46b27eb9ff4cddecb3492b4f9348300c65a0479e272a8005085ecbb76b1fd85b7f2d3e1dbeb237882d9bddc5f7004117091060c64db17a82fa87235fc48ba4a6993733cd00ba73d36da8a7354ee4667ea9090287893dd74d96ac1a36cc279af7281eecc6be9b11b4e259796ccf3aed9db6beeb2ccd89bc2098c540024fa5f2ebe6810265011af786971e29704097f584e292fd638f644a907a43b8fb1402965f6b0a21d313eb21234c5cafd83615e700dba54b5f37aa84a1448e788898fd1dc3b9559c309363e65967655544e04af82e635ae6b7cebd107d6f5297187b8949a5fd82cddd14f1e705dcbf78abcb3c428f34be0d158c42ff8d9db851542422798a762cdb7e26d8881214dfe84aef9e5896b6a9850d28a704d8e280e74a19986c677ce1fac48ff01dc1d2a348587ea19ea5aace015caf9235a5d4d2c13a1ae6ff68a2f3a5ccbdea6fd259e34abb7f27a5739f59a1ca7cf17c856e2e547f9f57815d1f3be0d510ace134b37dd6a0392dfcde4986c958c9be67b411296d67ca41ac06bc91cff01e6109c9dbb63c368878aa54eb1beb46c1bf2591de6fa6e1533edc7b200ff0b52e70dc89d4082aebbe596ad71b72c3d0bb1ba54dc8cc4346b08b95f3e5c872e7d18df7957bdb9c3928c7807afb3075d6f9bcd684e9d515d9eee16477211e20003a63c0b8886019b7e455561489209c0a9cf455e44a98ece7a7e8c9ff9a93937375affba867fbe8132aceb6ac1eb52ad9b373543576e836f1d308bd6b6e0d3a7f56346c2d544bb026615b164f427ea3daf184a2afcd9ce05bac6019ef6349f97f97c527107ae81c3f8211079bef7ea1bdbc70cc7228df2299d9cb7c4ed395b3d43a7b42b9a058846532d9f46b8e28a7fff0994ade4cc9448d0cc4715095f009a0fc879da6825c0484e5ffaa822f805c5a994826e38279dd2d2b3c0d87428f9a1a430aeb958b76c831c161f01cdcf01826c997df697d7fc4429be12fca7213be0367765408a634f9b3dc1ef533f216c971b1742684ba8c34a049731ab6f371bc14f443828a974f4d015c850c63ec7d7f774a6e31b3715424b2251aa4dd0c24d14799bdf88394421b3e3954ce53e5f5fffd185caa852c29d1a4fe0405c9278c7b58ee63e49b1cf30c782f23a7fd18d3ee5812b241e66e558c23a019ccb6ac32c89da617d8a3bcb673b98306700f16111b57b585bce7cebc0e2d40d059ff0cd95bba7ac536b8e8f6b60a08b28d6d9b3e587ce2bfc9a63de8fc406e9d54a47465d6cd4844f8943cdb51909f3d40d8ab3af6abae79a73ea0849a12d4d828ec88146b481d65f27d102b9b16c7c44eba6fe48f9f2134b844e314f0505eefdaac492ac339d454910a27a9e0cf9830aca91b6377e95a16f0254c39c47132a9d2a9e758f0bd95b7c7926784ab70ea69e8b8b4a22e788ba66edee4348eb26f0955a23250ed6d790d64f5d68fac869fd9f9d7`
+
+### Breakdown of the Initial Packet (From bold extracts):
+1. **Header Form (1 bit)**:
+   - Value: `c` (the `c` in the first byte `cd`) (binary: `1100`)
+   - Extracted value for Header Form: `1`
+
+2. **Fixed Bit (1 bit)**:
+   - Remained: `d` (second bit in byte `cd`) reserved by `Fixed Bit` (binary: `1101`).
+   - Extracted value for Fixed Bit: `1`
+
+3. **Long Packet Type (2 bits)**:
+   - Remained: `00` (third and fourth bits of byte `cd`)
+   - Extracted value for Long Packet Type: `00`
+
+4. **Reserved Bits (2 bits)**:
+   - Remained: `0`
+   - Extracted value: `Reserved bits: 00`.
+
+5. **Packet Number Length (2 bits)**:
+   - Remained: `10` (the fifth and sixth bits of byte `cd`)
+   - Extracted value: `Packet Number Length: 10`.
+
+6. **Version (32 bits)**:
+   - Next 4 bytes: `00000001` (0204040, first byte is `cd` from 01, actually from first byte-word `cd000001`).
+   - Extracted value: `Version: 00000001` (1).
+
+7. **Destination Connection ID Length (8 bits)**:
+   - Next byte ( 1 byte): `08` for Destination Connection ID Length = 8.
+
+8. **Destination Connection ID**:
+   - Next `08 = 8` bytes: `a46fd00628724817`
+   - Extracted value: `a46fd00628724817`.
+
+9. **Source Connection ID Length (8 bits)**:
+   - Next byte ( 1 byte): `0835 `
+   - Extracted value (01) for Source Connection ID Length = 8.
+
+10. **Source Connection ID**:
+    - Next `08 = 8` bytes: `0x5a5b5e2f82438000`.
+    - Extracted value: `5a5

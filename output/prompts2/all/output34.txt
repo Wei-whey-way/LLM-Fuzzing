@@ -1,0 +1,13 @@
+Line 1: Initial Packet
+Line 2: Handshake Packet
+Line 3: Handshake Packet
+Line 4: Handshake Packet
+Line 5: Handshake Packet
+Line 6: Short Header Packet
+Line 7: Short Header Packet
+Line 8: Short Header Packet
+Line 9: Handshake Packet
+Line 10: Short Header Packet
+
+Missing packets:
+0-RTT Packet: cf0000000005000000000000. Line 3: Handshake Packet

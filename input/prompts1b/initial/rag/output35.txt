@@ -1,0 +1,85 @@
+To correctly parse the given hex string into the Initial Packet structure as defined by RFC 9000, we need to extract each field based on the specifications. Let's break down the byte stream step-by-step:
+
+Bytestream: `c000000001083767801dde33acb7081d5b0380bd0c3907004098af80560c60b1a37b89a67a99bf1b7417c41ba65406fe012dbec0adecc6725ed9b3c00fdd35be86786436681dccc7e96e95efedef9c4ba6253a620163cb201b9c93de41e2828a178ef0ffca6e7b61320875646b3aa5cb8006eb6eea19a0ef87b72e7c101c878db0e3c026db3f488f4ad769303c6eff7b9d040f0717934331bdfd49dcdbc3b33267145b476f34f386ceef44ed3d079fda0a3e`
+
+### Step-by-Step Parsing:
+
+1. **Header Form (1 bit)**: `1` (This is a long header form)
+2. **Fixed Bit (1 bit)**: `1`
+3. **Long Packet Type (2 bits)**: `00` (Initial Packet type)
+4. **Reserved Bits (2 bits)**: `00`  (Note: these are reserved bits and typically `0`)
+5. **Packet Number Length (2 bits)**: `00`  (indicates the length of the Packet Number field)
+
+We now have parsed the first byte, which is:
+- Hex: `c0` 
+- Binary: `11000000`
+
+6. **Version (32 bits)**:
+   Next 4 bytes: `00000001`
+   - Hex: `00000001`
+   - Version: 1
+
+7. **Destination Connection ID Length (8 bits)**:
+   Next byte: `08` (8 bytes)
+   - Destination Connection ID Length: 8
+
+8. **Destination Connection ID (0..160 bits)**:
+   Next 8 bytes: `3767801dde33acb7`
+   - Hex: `3767801dde33acb7`
+   - Decimal equivalent: `0x3767801dde33acb7`
+
+9. **Source Connection ID Length (8 bits)**:
+    After Destination Connection ID, next byte: `08` (8 bytes)
+    - Source Connection ID Length: 8
+
+10. **Source Connection ID (0..160 bits)**:
+    Next 8 bytes: `081d5b0380bd0c39`
+    - Hex: `081d5b0380bd0c39`
+    - Decimal equivalent: `0x081d5b0380bd0c39`
+
+11. **Token Length (i varint)**:
+    Next byte: `07` (length is i, meaning 7 bytes following for Token)
+    - Hex: `07`
+    - Value: `1`
+
+12. **Token (..)**:
+    Next 7 bytes: `004098af80560c60`
+    - Hex: `004098af80560c60`
+    - Value: `0x004098af80560c60`
+
+13. **Length (i varint)**:
+    1 byte: `b1`
+    - Hex: `b1` (value is a single byte represented as 177 decimal for example)
+    - Length: `0xb1`
+
+14. **Packet Number (8..32 bits)**:
+   Length says 1 byte packet number: `a3`
+   - Hex: `a3`
+   - Packet Number: `0xa3`
+
+15. **Remaining is Payload**: 
+   After packet number till end:
+   - Payload: `7b89a67a99bf1b7417c41ba65406fe012dbec0adecc6725ed9b3c00fdd35be86786436681dccc7e96e95efedef9c4ba6253a620163cb201b9c93de41e2828a178ef0ffca6e7b61320875646b3aa5cb8006eb6eea19a0ef87b72e7c101c878db0e3c026db3f488f4ad769303c6eff7b9d040f0717934331bdfd49dcdbc3b33267145b476f34f386ceef44ed3d079fda0a3e`
+
+### Putting it all together:
+```json
+"Initial Packet": {
+    "Header Form (1)": "0x1",
+    "Fixed Bit (1)": "0x1",
+    "Long Packet Type (2)": "0x0",
+    "Reserved Bits (2)": "0x0",
+    "Packet Number Length (2)": "0x0",
+    "Version (32)": "0x00000001",
+    "Destination Connection ID Length (8)": "0x08",
+    "Destination Connection ID (0..160)": "0x3767801dde33acb7",
+    "Source Connection ID Length (8)": "0x08",
+    "Source Connection ID (0..160)": "0x081d5b0380bd0c39",
+    "Token Length (i)": "0x01",
+    "Token (..)": "0x004098af80560c60",
+    "Length (i)": "0xb1",
+    "Packet Number (8..32)": "0xa3",
+    "Packet Payload (8..)": "0x7b89a67a99bf1b7417c41ba65406fe012dbec0adecc6725ed9b3c00fdd35be86786436681dccc7e96e95efedef9c4ba6253a620163cb201b9c93de41e2828a178ef0ffca6e7b61320875646b3aa5cb8006eb6eea19a0ef87b72e7c101c878db0e3c026db3f488f4ad769303c6eff7b9d040f0717934331bdfd49dcdbc3b33267145b476f34f386ceef44ed3d079fda0a3e"
+}
+```
+
+This breakdown captures the structure as per RFC 9000 specification for the provided initial packet byte stream.

@@ -1,0 +1,11 @@
+"Header Form (1)": "1",
+"Fixed Bit (1)": "1",
+"Long Packet Type (2)": "0",
+"Reserved Bits (2)": "2",
+"Packet Number Length (2)": "3",
+"Version (32)": "00000001",
+"Destination Connection ID Length (8)": "08",
+"Destination Connection ID (0..160)": "1d5b0380bd0c3907",
+"Length (i)": "08",
+"Packet Number (8..32)": "e3",
+"Packet Payload (8..)": "ba579ef26558ad401a1d00e7a53ab2f0bb9d51a485f62390ba045f56d30450cac568ba"

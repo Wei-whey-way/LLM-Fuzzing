@@ -1,0 +1,9 @@
+{
+  "Fixed Bit": 1,
+  "Packet Type": "0-RTT",
+  "Connection ID Length": 8,
+  "Destination Connection ID": "0000000108030303",
+  "Packet Number": "03030303",
+  "Packet Payload Length": 102,
+  "Packet Payload": "030895def8b3385fc8b94015ab128496fe102d8e99f20f12a248e2f1cd2a7c4143"
+}
