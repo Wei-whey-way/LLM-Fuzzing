@@ -26,6 +26,8 @@ if not os.path.exists(destination_dir):
 
 #Function to put in hex lines into raw_hex_list folder
 def extract_raw_hex_list(packet_name, line, destination_dir):
+    # print(packet_name, 'going to', destination_dir)
+    
     # print(f'Now putting to {packet_name}: ', line)
     output_file_path = os.path.join(destination_dir, f'binary_extractor_{packet_name}.txt')
     
@@ -92,6 +94,7 @@ for subdir, dirs, files in os.walk(path):
                     
                     #1-RTT
                     if(handshake_flag == True and binary[0]=='0' and binary[1]=='1'):
+                        # print('1rtt: ', line)
                         extract_raw_hex_list('1rtt', line, destination_dir)
 
                     # else: print('not included: ', line)

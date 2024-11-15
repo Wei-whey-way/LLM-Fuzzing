@@ -1,7 +1,0 @@
-{'Line 1': 'Long Header Packet, Initial Packet', 'Line 2': 'Long Header Packet, Initial Packet', 'Line 3': 'Long Header Packet, Handshake Packet', 'Line 4': 'Long Header Packet, Handshake Packet', 'Line 5': 'Long Header Packet, Retry Packet', 'Line 6': 'Short Header Packet, 1-RTT Packet', 'Line 7': 'Short Header Packet, 1-RTT Packet', 'Line 8': 'Short Header Packet, 1-RTT Packet', 'Line 9': 'Short Header Packet, 1-RTT Packet'}
-Unique packet types (GT): 3
-Packet types: dict_keys(['Initial Packet', 'Handshake Packet', '1-RTT Packet'])
-Number of unique packet types: 3
-Valid: []
-Hallucinated: ['7800000001680000000108000079']
-Order: Hallucination (Fail)

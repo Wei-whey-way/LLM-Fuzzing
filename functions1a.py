@@ -6,6 +6,105 @@ from difflib import SequenceMatcher
 
 output_dir = "output/evaluation"
 
+#Initialise expected values for each packet type
+expected_values = {
+    "Version Negotiation Packet": {
+        "Header Form (1)": "0x0",
+        "Unused (7)": "<Value>",
+        "Version (32)": "0x0",
+        "Destination Connection ID Length (8)": "<Value>",
+        "Destination Connection ID (0..2040)": "<Value>",
+        "Source Connection ID Length (8)": "<Value>",
+        "Source Connection ID (0..2040)": "<Value>",
+        "Supported Version (32)": "<Value>",
+    },
+    "Initial Packet": {
+        "Header Form (1)": "0x1",
+        "Fixed Bit (1)": "0x1",
+        "Long Packet Type (2)": "0x0",
+        "Reserved Bits (2)": "<Value>",
+        "Packet Number Length (2)": "<Value>",
+        "Version (32)": "<Value>",
+        "Destination Connection ID Length (8)": "<Value>",
+        "Destination Connection ID (0..160)": "<Value>",
+        "Source Connection ID Length (8)": "<Value>",
+        "Source Connection ID (0..160)": "<Value>",
+        "Token Length (i)": "<Value>",
+        "Token (..)": "<Value>",
+        "Length (i)": "<Value>",
+        "Packet Number (8..32)": "<Value>",
+        "Packet Payload (8..)": "<Value>",
+    },
+    "0-RTT Packet": {
+        "Header Form (1)": "0x1",
+        "Fixed Bit (1)": "0x1",
+        "Long Packet Type (2)": "0x1",
+        "Reserved Bits (2)": "<Value>",
+        "Packet Number Length (2)": "<Value>",
+        "Version (32)": "<Value>",
+        "Destination Connection ID Length (8)": "<Value>",
+        "Destination Connection ID (0..160)": "<Value>",
+        "Source Connection ID Length (8)": "<Value>",
+        "Source Connection ID (0..160)": "<Value>",
+        "Length (i)": "<Value>",
+        "Packet Number (8..32)": "<Value>",
+        "Packet Payload (8..)": "<Value>",
+    },
+    "Handshake Packet": {
+        "Header Form (1)": "0x1",
+        "Fixed Bit (1)": "0x1",
+        "Long Packet Type (2)": "0x2",
+        "Reserved Bits (2)": "<Value>",
+        "Packet Number Length (2)": "<Value>",
+        "Version (32)": "<Value>",
+        "Destination Connection ID Length (8)": "<Value>",
+        "Destination Connection ID (0..160)": "<Value>",
+        "Source Connection ID Length (8)": "<Value>",
+        "Source Connection ID (0..160)": "<Value>",
+        "Length (i)": "<Value>",
+        "Packet Number (8..32)": "<Value>",
+        "Packet Payload (8..)": "<Value>",
+    },
+    "Retry Packet": {
+        "Header Form (1)": "0x1",
+        "Fixed Bit (1)": "0x1",
+        "Long Packet Type (2)": "0x3",
+        "Unused (4)": "<Value>",
+        "Version (32)": "<Value>",
+        "Destination Connection ID Length (8)": "<Value>",
+        "Destination Connection ID (0..160)": "<Value>",
+        "Source Connection ID Length (8)": "<Value>",
+        "Source Connection ID (0..160)": "<Value>",
+        "Retry Token (..)": "<Value>",
+        "Retry Integrity Tag (128)": "<Value>",
+    },
+    "1-RTT Packet": {
+        "Header Form (1)": "0x0",
+        "Fixed Bit (1)": "0x1",
+        "Spin Bit (1)": "<Value>",
+        "Reserved Bits (2)": "<Value>",
+        "Key Phase (1)": "<Value>",
+        "Packet Number Length (2)": "<Value>",
+        "Destination Connection ID (0..160)": "<Value>",
+        "Packet Number (8..32)": "<Value>",
+        "Packet Payload (8..)": "<Value>",
+    }
+}
+
+#Function to get accuracy of lists
+def get_accuracy(packet_count, counters):
+    for item in counters:
+        if packet_count[item] == 0: continue
+        # print('\t', len(counters[item]), counters[item])
+        average = sum(counters[item])/len(counters[item])
+        # print(f'\t{item}:\tAverage:', )
+        
+        #Get non zero items
+        # filtered_list = [item for item in counters[item] if item != 0]
+        # average = sum(filtered_list)/len(filtered_list)
+        print(f'\t{item}: {average}')
+    return
+
 #Function to parse input text into a readable format
 def parse_text(text):
     pairs = text.split(',')

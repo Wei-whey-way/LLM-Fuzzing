@@ -13,7 +13,7 @@ if not os.path.exists(output_dir):
 
 if os.path.exists('input/batchinputprompts/1b-batchprompts-initial'): os.remove('input/batchinputprompts/1b-batchprompts-initial')
 if os.path.exists('input/batchinputprompts/1b-batchprompts-handshake'): os.remove('input/batchinputprompts/1b-batchprompts-handshake')
-# if os.path.exists('input/prompts1b/binary_extractor_0rtt.txt'): os.remove('input/prompts1b/binary_extractor_0rtt.txt')
+if os.path.exists('input/batchinputprompts/1b-batchprompts-0rtt'): os.remove('input/batchinputprompts/1b-batchprompts-0rtt')
 if os.path.exists('input/batchinputprompts/1b-batchprompts-retry'): os.remove('input/batchinputprompts/1b-batchprompts-retry')
 if os.path.exists('input/batchinputprompts/1b-batchprompts-versionnego'): os.remove('input/batchinputprompts/1b-batchprompts-versionnego')
 if os.path.exists('input/batchinputprompts/1b-batchprompts-1rtt'): os.remove('input/batchinputprompts/1b-batchprompts-1rtt')
@@ -112,22 +112,22 @@ def output_batches(packet_name, file_name, hex_str):
 
 #Extract all prompts into separate batch prompts
 #Version Negotiation packet
-output_batches('versionnego', "input/batchinputprompts/1b-batchprompts-versionnego.jsonl", hex_str_vn)
+# output_batches('versionnego', "input/batchinputprompts/1b-batchprompts-versionnego.jsonl", hex_str_vn)
 
 #Initial packet
-output_batches('initial', "input/batchinputprompts/1b-batchprompts-initial.jsonl", hex_str_ini)
+# output_batches('initial', "input/batchinputprompts/1b-batchprompts-initial.jsonl", hex_str_ini)
 
 #Handshake packet
-output_batches('handshake', "input/batchinputprompts/1b-batchprompts-handshake.jsonl", hex_str_hs)
+# output_batches('handshake', "input/batchinputprompts/1b-batchprompts-handshake.jsonl", hex_str_hs)
 
 #0-rtt packet
-# "input/batchinputprompts/1b-batchprompts-0rtt.jsonl": hex_str_0rtt
+output_batches('0rtt', "input/batchinputprompts/1b-batchprompts-0rtt.jsonl", hex_str_0rtt)
 
 #Retry packet
-output_batches('retry', "input/batchinputprompts/1b-batchprompts-retry.jsonl", hex_str_ret)
+# output_batches('retry', "input/batchinputprompts/1b-batchprompts-retry.jsonl", hex_str_ret)
 
 #1-rtt packet
-output_batches('1rtt', "input/batchinputprompts/1b-batchprompts-1rtt.jsonl", hex_str_1rtt)
+# output_batches('1rtt', "input/batchinputprompts/1b-batchprompts-1rtt.jsonl", hex_str_1rtt)
 
 
 # file = open(file_name, "w")
@@ -136,47 +136,3 @@ output_batches('1rtt', "input/batchinputprompts/1b-batchprompts-1rtt.jsonl", hex
 #     prompt = generate_batch_prompt(hex_str, i+1, "gpt-3.5-turbo-0125")
 #     file.write(json.dumps(prompt) + "\n")
 # file.close()
-
-
-# client = OpenAI()
-# print("Now generating packets...")
-
-# for i, line in enumerate(binary_list):
-#     follow_up_prompt = generate_follow_up_prompt(line)
-
-#     #Sending prompt to chatgpt
-#     initial_message = {
-#         "role": "system",
-#         "content": f"{follow_up_prompt}"
-#     }
-
-#     #Extract prompts and 
-#     prompt_path = os.path.join('output/mutablefield/output', f'mutable_prompt{i+1}.txt')
-
-#     #Writing prompts to new file
-#     with open(prompt_path, 'w') as file:
-#         file.write(follow_up_prompt)
-
-#     gpt_prompt = client.chat.completions.create(
-#         model="gpt-4",
-#         messages = [initial_message],
-#         temperature=0.5,
-#         max_tokens=1600,
-#         top_p=1,
-#         frequency_penalty=0,
-#         presence_penalty=0
-#     )
-
-#     #Extract prompts to output folder
-#     prompt_path = os.path.join('output/mutablefield/output', f'mutable_prompt{i+1}.txt')
-#     with open(prompt_path, 'w') as file:
-#         file.write(follow_up_prompt)
-    
-#     #Extract chatgpt output to output folder
-#     file_path = os.path.join('output/mutablefield/output', f'mutable_output{i+1}.txt')
-#     output = str(gpt_prompt.choices[0].message.content)
-#     with open(file_path, 'w') as file:
-#         file.write(output)
-
-
-# print("Testing complete")

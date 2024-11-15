@@ -1,7 +1,0 @@
-{'Line 1': 'Initial Packet', 'Line 2': 'Handshake Packet', 'Line 3': '0-RTT Packet', 'Line 4': 'Retry Packet', 'Line 5': 'Retry Packet', 'Line 6': 'Retry Packet', 'Line 7': 'Version Negotiation Packet', 'Line 8': 'Version Negotiation Packet', 'Line 9': 'Version Negotiation Packet', 'Line 10': 'Version Negotiation Packet'}
-Unique packet types (GT): 3
-Packet types: dict_keys(['Initial Packet', 'Handshake Packet', '1-RTT Packet'])
-Number of unique packet types: 3
-Valid: []
-Hallucinated: ['apple']
-Order: Hallucination (Fail)
